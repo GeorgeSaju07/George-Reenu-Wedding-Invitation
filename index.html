@@ -22,6 +22,7 @@
 >
 
 <style>
+
 /* ==========================================================================
    DESIGN SYSTEM
    ========================================================================== */
@@ -42,45 +43,24 @@
   --charcoal:#332b26;
   --ink:#3b322b;
 
-  --serif:
-    'Cormorant Garamond',
-    Georgia,
-    'Times New Roman',
-    serif;
-
-  --caps:
-    'Cinzel',
-    'Cormorant Garamond',
-    Georgia,
-    serif;
-
-  --sans:
-    'Lato',
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --caps:'Cinzel','Cormorant Garamond',Georgia,serif;
+  --sans:'Lato',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 
   --ease:cubic-bezier(.22,.61,.36,1);
   --sheetw:780px;
 
   box-sizing:border-box;
 
-  padding-top:
-    env(safe-area-inset-top,0px);
-
-  padding-bottom:
-    env(safe-area-inset-bottom,0px);
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
 }
 
 @media (prefers-color-scheme:dark){
-
   :root:not([data-theme="light"]){
     --ivory:#f1e8d4;
     --parch:#e7d9bc;
   }
-
 }
 
 :root[data-theme="dark"]{
@@ -93,16 +73,13 @@
 }
 
 html{
-  scroll-padding-top:
-    env(safe-area-inset-top,0px);
-
+  scroll-padding-top:env(safe-area-inset-top,0px);
   -webkit-text-size-adjust:100%;
   background:var(--wine-deep);
 }
 
 body{
   margin:0;
-
   background:var(--wine-deep);
   color:var(--ink);
 
@@ -164,11 +141,9 @@ a{
 
 body::before{
   content:"";
-
   position:fixed;
   inset:0;
   z-index:80;
-
   pointer-events:none;
 
   background:
@@ -181,15 +156,12 @@ body::before{
 
 body::after{
   content:"";
-
   position:fixed;
   inset:0;
   z-index:81;
-
   pointer-events:none;
 
-  background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .2  0 0 0 0 .12  0 0 0 0 .06  .16 0 0 0 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .2  0 0 0 0 .12  0 0 0 0 .06  .16 0 0 0 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 
@@ -220,16 +192,13 @@ body::after{
       #2a0611 100%
     );
 
-  transition:
-    opacity 1.1s var(--ease);
+  transition:opacity 1.1s var(--ease);
 }
 
 .gate::before{
   content:"";
-
   position:absolute;
   inset:0;
-
   opacity:.09;
   pointer-events:none;
 
@@ -248,7 +217,6 @@ body::after{
 
 .gate__glow{
   position:absolute;
-
   left:50%;
   top:46%;
 
@@ -267,11 +235,9 @@ body::after{
       transparent 64%
     );
 
-  animation:
-    flicker 6s ease-in-out infinite;
+  animation:flicker 6s ease-in-out infinite;
 
-  transition:
-    opacity 1.6s var(--ease);
+  transition:opacity 1.6s var(--ease);
 }
 
 @keyframes flicker{
@@ -289,8 +255,7 @@ body::after{
   background:var(--ivory);
   opacity:0;
 
-  transition:
-    opacity 2.1s var(--ease);
+  transition:opacity 2.1s var(--ease);
 
   pointer-events:none;
 }
@@ -308,35 +273,22 @@ body::after{
 .gate__hint,
 .gate__note{
   text-align:center;
-
-  transition:
-    opacity .9s var(--ease);
+  transition:opacity .9s var(--ease);
 }
 
 .gate__hint{
-  font:
-    500 .72rem/1.6
-    var(--caps);
-
+  font:500 .72rem/1.6 var(--caps);
   letter-spacing:.36em;
   text-transform:uppercase;
-
   color:var(--gold-light);
 
-  animation:
-    breathe 3.4s ease-in-out infinite;
+  animation:breathe 3.4s ease-in-out infinite;
 }
 
 .gate__note{
-  font:
-    300 .72rem/1.5
-    var(--sans);
-
+  font:300 .72rem/1.5 var(--sans);
   letter-spacing:.06em;
-
-  color:
-    rgba(247,240,225,.62);
-
+  color:rgba(247,240,225,.62);
   max-width:26ch;
 }
 
@@ -346,22 +298,15 @@ body::after{
 }
 
 .env{
-  --ew:min(
-    82vw,
-    340px,
-    calc((100svh - 190px) * .8)
-  );
+  --ew:min(82vw,340px,calc((100svh - 190px) * .8));
 
   position:relative;
-
   display:block;
 
   width:var(--ew);
-
   aspect-ratio:4/5;
 
   padding:0;
-
   border:0;
   background:none;
 
@@ -382,7 +327,6 @@ body::after{
 :where(.env)>span{
   position:absolute;
   inset:0;
-
   display:block;
 }
 
@@ -391,12 +335,7 @@ body::after{
 }
 
 .env__back{
-  background:
-    linear-gradient(
-      180deg,
-      #5b1428,
-      #3d0a19
-    );
+  background:linear-gradient(180deg,#5b1428,#3d0a19);
 
   border-radius:2px;
 
@@ -413,15 +352,13 @@ body::after{
 
   background:var(--ivory);
 
-  box-shadow:
-    0 2px 10px rgba(0,0,0,.35);
+  box-shadow:0 2px 10px rgba(0,0,0,.35);
 
-  transition:
-    transform 1.9s var(--ease);
+  transition:transform 1.9s var(--ease);
 
   display:flex!important;
-
   flex-direction:column;
+
   align-items:center;
   justify-content:flex-start;
 
@@ -436,12 +373,9 @@ body::after{
 
 .env__card::before{
   content:"";
-
   position:absolute;
   inset:6px;
-
   border:1px solid var(--gold-ink);
-
   opacity:.55;
   pointer-events:none;
 }
@@ -459,7 +393,6 @@ body::after{
 
   letter-spacing:.22em;
   text-transform:uppercase;
-  font-weight:500;
 }
 
 .env__front{
@@ -489,7 +422,6 @@ body::after{
   bottom:6%;
 
   display:flex;
-
   flex-direction:column;
   align-items:center;
   justify-content:center;
@@ -507,7 +439,6 @@ body::after{
     var(--serif);
 
   letter-spacing:.16em;
-
   text-transform:uppercase;
 }
 
@@ -517,7 +448,6 @@ body::after{
     var(--caps);
 
   letter-spacing:.3em;
-
   text-transform:uppercase;
 
   color:var(--gold-ink);
@@ -552,11 +482,9 @@ body::after{
   z-index:4;
 
   height:52%;
-
   bottom:auto;
 
   transform-origin:50% 0;
-
   transform-style:preserve-3d;
 
   transition:
@@ -577,14 +505,12 @@ body::after{
 
 .flap__crest{
   position:absolute!important;
-
   inset:auto!important;
 
   left:50%;
   top:10%;
 
   width:23%!important;
-
   height:auto!important;
 
   aspect-ratio:200/240;
@@ -614,7 +540,6 @@ body::after{
 
 .seal{
   position:absolute!important;
-
   inset:auto!important;
 
   left:50%;
@@ -757,9 +682,7 @@ body::after{
 
 .sheet{
   position:relative;
-
   width:100%;
-
   margin:0 auto;
 }
 
@@ -828,7 +751,6 @@ body::after{
   position:relative;
 
   width:100%;
-
   max-width:560px;
 
   margin:0 auto;
@@ -1066,8 +988,7 @@ body::after{
 
   opacity:0;
 
-  transform:
-    translateY(.35em);
+  transform:translateY(.35em);
 
   filter:blur(3px);
 
@@ -1090,9 +1011,7 @@ body::after{
 
 .letters.in .ltr{
   opacity:1;
-
   transform:none;
-
   filter:none;
 }
 
@@ -1204,11 +1123,9 @@ body::after{
 }
 
 .btn:hover{
-  background:
-    var(--btn-hover-bg);
+  background:var(--btn-hover-bg);
 
-  color:
-    var(--btn-hover-fg);
+  color:var(--btn-hover-fg);
 
   box-shadow:
     0 0 0 1px var(--btn-line),
@@ -1341,7 +1258,9 @@ body::after{
 
   background:var(--line);
 
-  translate:-50% 0;
+  translate:
+    -50%
+    0;
 }
 
 .when__date{
@@ -1350,6 +1269,7 @@ body::after{
     var(--caps);
 
   letter-spacing:.2em;
+
   text-indent:.2em;
 
   text-transform:uppercase;
@@ -1521,9 +1441,7 @@ body::after{
   position:relative;
 
   padding:
-    44px
-    26px
-    40px;
+    44px 26px 40px;
 
   background:var(--wine);
 
@@ -1920,6 +1838,7 @@ body::after{
 
 .step__n{
   position:relative;
+
   z-index:1;
 
   display:grid;
@@ -1988,7 +1907,8 @@ body::after{
   width:
     min(290px,80%);
 
-  margin:0 auto;
+  margin:
+    0 auto;
 
   color:var(--gold-light);
 
@@ -2012,8 +1932,11 @@ body::after{
   background:var(--ivory);
 
   box-shadow:
-    0 26px 50px -22px rgba(60,20,20,.45),
-    0 0 0 1px rgba(128,98,42,.28);
+    0 26px 50px -22px
+    rgba(60,20,20,.45),
+
+    0 0 0 1px
+    rgba(128,98,42,.28);
 }
 
 .card .frame{
@@ -2111,14 +2034,17 @@ body::after{
       84vw
     );
 
-  translate:-50% 0;
+  translate:
+    -50%
+    0;
 
   z-index:8;
 
   background:var(--wine);
 
   border:
-    1px solid var(--gold-ink);
+    1px solid
+    var(--gold-ink);
 
   padding:6px;
 
@@ -2129,7 +2055,6 @@ body::after{
     rgba(30,6,14,.6);
 
   opacity:0;
-
   visibility:hidden;
 
   transform:
@@ -2217,8 +2142,11 @@ body::after{
   background:var(--parch);
 
   box-shadow:
-    0 26px 50px -22px rgba(60,20,20,.5),
-    0 0 0 1px rgba(128,98,42,.35);
+    0 26px 50px -22px
+    rgba(60,20,20,.5),
+
+    0 0 0 1px
+    rgba(128,98,42,.35);
 }
 
 .mapcard svg.map{
@@ -2459,11 +2387,8 @@ body::after{
     1px solid
     rgba(220,196,138,.55);
 
-  -webkit-backdrop-filter:
-    blur(6px);
-
-  backdrop-filter:
-    blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
 
   opacity:0;
 
@@ -2824,6 +2749,7 @@ body::after{
   }
 
 }
+
 </style>
 </head>
 
@@ -2843,780 +2769,278 @@ body::after{
   focusable="false"
 >
 
-  <!-- ========================================================================
-       CREST
-       ======================================================================== -->
 
-  <symbol id="crest" viewBox="0 0 200 240">
+<!-- ==========================================================================
+     CREST
+     ========================================================================== -->
+
+<symbol id="crest" viewBox="0 0 200 240">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
 
     <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.4"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      class="crest-laurel"
+      fill="currentColor"
+      fill-opacity=".18"
     >
 
-      <g
-        class="crest-laurel"
-        fill="currentColor"
-        fill-opacity=".18"
-      >
-
-        <path
-          fill="none"
-          d="M100.0 213.0 C58.0 212.0 30.0 176.0 36.0 132.0 C40.0 114.0 46.0 100.0 54.0 90.0"
-        />
-
-        <path transform="translate(85.6 211.2) rotate(-214.9) scale(1.00)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(85.6 211.2) rotate(-118.9) scale(1.00)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(72.7 206.7) rotate(-202.7) scale(0.98)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(72.7 206.7) rotate(-106.7) scale(0.98)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(61.3 199.8) rotate(-190.6) scale(0.96)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(61.3 199.8) rotate(-94.6) scale(0.96)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(51.7 190.7) rotate(-178.5) scale(0.94)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(51.7 190.7) rotate(-82.5) scale(0.94)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(44.1 179.7) rotate(-166.9) scale(0.92)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(44.1 179.7) rotate(-70.9) scale(0.92)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(38.7 167.1) rotate(-155.6) scale(0.90)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(38.7 167.1) rotate(-59.6) scale(0.90)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(35.7 153.2) rotate(-144.7) scale(0.88)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(35.7 153.2) rotate(-48.7) scale(0.88)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(35.4 138.2) rotate(-134.3) scale(0.86)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(35.4 138.2) rotate(-38.3) scale(0.86)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(39.0 120.3) rotate(-121.1) scale(0.84)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(39.0 120.3) rotate(-25.1) scale(0.84)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(42.7 109.9) rotate(-115.9) scale(0.82)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(42.7 109.9) rotate(-19.9) scale(0.82)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(47.0 100.8) rotate(-109.8) scale(0.80)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(47.0 100.8) rotate(-13.8) scale(0.80)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(51.9 92.8) rotate(-102.6) scale(0.78)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(51.9 92.8) rotate(-6.6) scale(0.78)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path
-          fill="none"
-          d="M100.0 213.0 C142.0 212.0 170.0 176.0 164.0 132.0 C160.0 114.0 154.0 100.0 146.0 90.0"
-        />
-
-        <path transform="translate(114.4 211.2) rotate(394.9) scale(1.00)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(114.4 211.2) rotate(298.9) scale(1.00)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(127.3 206.7) rotate(382.7) scale(0.98)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(127.3 206.7) rotate(286.7) scale(0.98)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(138.7 199.8) rotate(370.6) scale(0.96)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(138.7 199.8) rotate(274.6) scale(0.96)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(148.3 190.7) rotate(358.5) scale(0.94)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(148.3 190.7) rotate(262.5) scale(0.94)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(155.9 179.7) rotate(346.9) scale(0.92)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(155.9 179.7) rotate(250.9) scale(0.92)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(161.3 167.1) rotate(335.6) scale(0.90)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(161.3 167.1) rotate(239.6) scale(0.90)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(164.3 153.2) rotate(324.7) scale(0.88)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(164.3 153.2) rotate(228.7) scale(0.88)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(164.6 138.2) rotate(314.3) scale(0.86)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(164.6 138.2) rotate(218.3) scale(0.86)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(161.0 120.3) rotate(301.1) scale(0.84)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(161.0 120.3) rotate(205.1) scale(0.84)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(157.3 109.9) rotate(295.9) scale(0.82)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(157.3 109.9) rotate(199.9) scale(0.82)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(153.0 100.8) rotate(289.8) scale(0.80)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(153.0 100.8) rotate(193.8) scale(0.80)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-        <path transform="translate(148.1 92.8) rotate(282.6) scale(0.78)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-        <path transform="translate(148.1 92.8) rotate(186.6) scale(0.78)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
-
-      </g>
-
-      <g transform="translate(0 6)">
-
-        <path d="M66 66L60 40L78 53L90 32L100 47L110 32L122 53L140 40L134 66Z"/>
-        <path d="M66 66H134"/>
-        <path d="M68 60H132" opacity=".6"/>
-
-        <circle cx="60" cy="38" r="2.6" fill="currentColor"/>
-        <circle cx="90" cy="30" r="2.6" fill="currentColor"/>
-        <circle cx="110" cy="30" r="2.6" fill="currentColor"/>
-        <circle cx="140" cy="38" r="2.6" fill="currentColor"/>
-
-        <path d="M100 12V34M92 20H108" stroke-width="2.2"/>
-
-        <circle
-          cx="100"
-          cy="47"
-          r="2"
-          fill="currentColor"
-        />
-
-      </g>
-
-      <g stroke-width="2.7">
-
-        <g transform="translate(-1 28) scale(0.44)">
-
-          <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
-          <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
-          <path d="M36 62C50 52 70 52 86 63"/>
-          <path d="M50 69C61 61 75 63 84 70"/>
-          <path d="M22 56C30 58 40 58 46 56" opacity=".7"/>
-          <path d="M108 60C117 54 118 44 110 36C103 30 102 22 107 16"/>
-          <path d="M96 58C104 52 106 44 100 38C94 32 92 22 98 14"/>
-          <path d="M98 14C99 7 108 6 110 12L121 15L110 18"/>
-
-          <circle
-            cx="105"
-            cy="12.5"
-            r="1"
-            fill="currentColor"
-            stroke="none"
-          />
-
-          <path
-            d="M12 84C34 88 60 88 84 84M30 91C50 94 72 94 92 91"
-            opacity=".55"
-          />
-
-        </g>
-
-        <g transform="translate(201 28) scale(-0.44 0.44)">
-
-          <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
-          <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
-          <path d="M36 62C50 52 70 52 86 63"/>
-          <path d="M50 69C61 61 75 63 84 70"/>
-          <path d="M22 56C30 58 40 58 46 56" opacity=".7"/>
-          <path d="M108 60C117 54 118 44 110 36C103 30 102 22 107 16"/>
-          <path d="M96 58C104 52 106 44 100 38C94 32 92 22 98 14"/>
-          <path d="M98 14C99 7 108 6 110 12L121 15L110 18"/>
-
-          <circle
-            cx="105"
-            cy="12.5"
-            r="1"
-            fill="currentColor"
-            stroke="none"
-          />
-
-          <path
-            d="M12 84C34 88 60 88 84 84M30 91C50 94 72 94 92 91"
-            opacity=".55"
-          />
-
-        </g>
-
-      </g>
-
       <path
-        d="M60 78H140V140C140 168 121 186 100 196C79 186 60 168 60 140Z"
-        fill="var(--crest-fill,#4a0d1f)"
-        stroke-width="1.8"
+        fill="none"
+        d="M100.0 213.0 C58.0 212.0 30.0 176.0 36.0 132.0 C40.0 114.0 46.0 100.0 54.0 90.0"
       />
 
-      <path
-        d="M66 84H134V140C134 164 118 180 100 189C82 180 66 164 66 140Z"
-        stroke-width=".8"
-        opacity=".8"
-      />
+      <path transform="translate(85.6 211.2) rotate(-214.9) scale(1.00)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(85.6 211.2) rotate(-118.9) scale(1.00)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
 
-      <text
-        x="83"
-        y="146"
-        text-anchor="middle"
-        font-family="Cormorant Garamond,Georgia,serif"
-        font-size="46"
-        font-weight="500"
-        fill="currentColor"
-        stroke="none"
-      >G</text>
+      <path transform="translate(72.7 206.7) rotate(-202.7) scale(0.98)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(72.7 206.7) rotate(-106.7) scale(0.98)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
 
-      <text
-        x="118"
-        y="146"
-        text-anchor="middle"
-        font-family="Cormorant Garamond,Georgia,serif"
-        font-size="46"
-        font-weight="500"
-        fill="currentColor"
-        stroke="none"
-      >R</text>
+      <path transform="translate(61.3 199.8) rotate(-190.6) scale(0.96)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(61.3 199.8) rotate(-94.6) scale(0.96)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
 
-      <text
-        x="100"
-        y="170"
-        text-anchor="middle"
-        font-family="Cormorant Garamond,Georgia,serif"
-        font-style="italic"
-        font-size="22"
-        fill="currentColor"
-        stroke="none"
-      >&amp;</text>
+      <path transform="translate(51.7 190.7) rotate(-178.5) scale(0.94)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(51.7 190.7) rotate(-82.5) scale(0.94)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(44.1 179.7) rotate(-166.9) scale(0.92)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(44.1 179.7) rotate(-70.9) scale(0.92)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(38.7 167.1) rotate(-155.6) scale(0.90)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(38.7 167.1) rotate(-59.6) scale(0.90)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(35.7 153.2) rotate(-144.7) scale(0.88)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(35.7 153.2) rotate(-48.7) scale(0.88)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(35.4 138.2) rotate(-134.3) scale(0.86)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(35.4 138.2) rotate(-38.3) scale(0.86)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(39.0 120.3) rotate(-121.1) scale(0.84)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(39.0 120.3) rotate(-25.1) scale(0.84)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(42.7 109.9) rotate(-115.9) scale(0.82)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(42.7 109.9) rotate(-19.9) scale(0.82)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(47.0 100.8) rotate(-109.8) scale(0.80)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(47.0 100.8) rotate(-13.8) scale(0.80)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(51.9 92.8) rotate(-102.6) scale(0.78)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(51.9 92.8) rotate(-6.6) scale(0.78)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
 
       <path
-        d="M74 98H126"
-        stroke-width=".8"
-        opacity=".7"
+        fill="none"
+        d="M100.0 213.0 C142.0 212.0 170.0 176.0 164.0 132.0 C160.0 114.0 154.0 100.0 146.0 90.0"
       />
 
-      <path d="M100 94v0"/>
+      <path transform="translate(114.4 211.2) rotate(394.9) scale(1.00)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(114.4 211.2) rotate(298.9) scale(1.00)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
 
-      <text
-        x="100"
-        y="230"
-        text-anchor="middle"
-        font-family="Cinzel,Georgia,serif"
-        font-size="8"
-        letter-spacing="3"
-        fill="currentColor"
-        stroke="none"
-      >MMXXVI</text>
+      <path transform="translate(127.3 206.7) rotate(382.7) scale(0.98)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(127.3 206.7) rotate(286.7) scale(0.98)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(138.7 199.8) rotate(370.6) scale(0.96)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(138.7 199.8) rotate(274.6) scale(0.96)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(148.3 190.7) rotate(358.5) scale(0.94)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(148.3 190.7) rotate(262.5) scale(0.94)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(155.9 179.7) rotate(346.9) scale(0.92)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(155.9 179.7) rotate(250.9) scale(0.92)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(161.3 167.1) rotate(335.6) scale(0.90)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(161.3 167.1) rotate(239.6) scale(0.90)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(164.3 153.2) rotate(324.7) scale(0.88)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(164.3 153.2) rotate(228.7) scale(0.88)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(164.6 138.2) rotate(314.3) scale(0.86)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(164.6 138.2) rotate(218.3) scale(0.86)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(161.0 120.3) rotate(301.1) scale(0.84)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(161.0 120.3) rotate(205.1) scale(0.84)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(157.3 109.9) rotate(295.9) scale(0.82)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(157.3 109.9) rotate(199.9) scale(0.82)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(153.0 100.8) rotate(289.8) scale(0.80)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(153.0 100.8) rotate(193.8) scale(0.80)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+
+      <path transform="translate(148.1 92.8) rotate(282.6) scale(0.78)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
+      <path transform="translate(148.1 92.8) rotate(186.6) scale(0.78)" d="M0 0C4-5 11-5 15 0C11 5 4 5 0 0Z"/>
 
     </g>
 
-  </symbol>
 
+    <g transform="translate(0 6)">
 
-  <!-- ========================================================================
-       SWANS
-       ======================================================================== -->
+      <path d="M66 66L60 40L78 53L90 32L100 47L110 32L122 53L140 40L134 66Z"/>
+      <path d="M66 66H134"/>
+      <path d="M68 60H132" opacity=".6"/>
 
-  <symbol id="swans" viewBox="0 0 300 100">
+      <circle cx="60" cy="38" r="2.6" fill="currentColor"/>
+      <circle cx="90" cy="30" r="2.6" fill="currentColor"/>
+      <circle cx="110" cy="30" r="2.6" fill="currentColor"/>
+      <circle cx="140" cy="38" r="2.6" fill="currentColor"/>
 
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <g transform="translate(8 0) scale(1)">
-
-        <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
-        <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
-        <path d="M36 62C50 52 70 52 86 63"/>
-        <path d="M50 69C61 61 75 63 84 70"/>
-        <path d="M22 56C30 58 40 58 46 56" opacity=".7"/>
-        <path d="M108 60C117 54 118 44 110 36C103 30 102 22 107 16"/>
-        <path d="M96 58C104 52 106 44 100 38C94 32 92 22 98 14"/>
-        <path d="M98 14C99 7 108 6 110 12L121 15L110 18"/>
-
-        <circle
-          cx="105"
-          cy="12.5"
-          r="1"
-          fill="currentColor"
-          stroke="none"
-        />
-
-        <path
-          d="M12 84C34 88 60 88 84 84M30 91C50 94 72 94 92 91"
-          opacity=".55"
-        />
-
-      </g>
-
-      <g transform="translate(292 0) scale(-1 1)">
-
-        <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
-        <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
-        <path d="M36 62C50 52 70 52 86 63"/>
-        <path d="M50 69C61 61 75 63 84 70"/>
-        <path d="M22 56C30 58 40 58 46 56" opacity=".7"/>
-        <path d="M108 60C117 54 118 44 110 36C103 30 102 22 107 16"/>
-        <path d="M96 58C104 52 106 44 100 38C94 32 92 22 98 14"/>
-        <path d="M98 14C99 7 108 6 110 12L121 15L110 18"/>
-
-        <circle
-          cx="105"
-          cy="12.5"
-          r="1"
-          fill="currentColor"
-          stroke="none"
-        />
-
-        <path
-          d="M12 84C34 88 60 88 84 84M30 91C50 94 72 94 92 91"
-          opacity=".55"
-        />
-
-      </g>
-
-      <circle cx="141" cy="74" r="9"/>
-      <circle cx="159" cy="74" r="9"/>
-
-      <path
-        d="M150 20V40M143 27H157"
-        stroke-width="1.6"
-      />
-
-      <path
-        d="M131 50C140 56 144 56 150 50C156 56 160 56 169 50"
-        opacity=".55"
-      />
-
-    </g>
-
-  </symbol>
-
-
-  <!-- ========================================================================
-       CHURCH
-       ======================================================================== -->
-
-  <symbol id="church" viewBox="0 0 200 144">
-
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M8 136H192"/>
-      <path d="M20 140H180" opacity=".5"/>
-
-      <path d="M52 136V84M148 136V84"/>
-
-      <path d="M46 84L100 54L154 84"/>
-      <path d="M56 84L100 60L144 84" opacity=".55"/>
-
-      <path d="M84 63V34M116 63V34"/>
-
-      <path d="M80 34H120M82 38H118"/>
-
-      <path d="M92 57V45A8 8 0 0 1 108 45V57"/>
-      <path d="M100 37V57" opacity=".5"/>
-
-      <path d="M86 34L100 14L114 34"/>
-
-      <path
-        d="M100 14V3M96 7H104"
-        stroke-width="1.6"
-      />
+      <path d="M100 12V34M92 20H108" stroke-width="2.2"/>
 
       <circle
         cx="100"
-        cy="91"
-        r="7.5"
-      />
-
-      <path
-        d="M100 83.5V98.5M92.5 91H107.5M94.7 85.7L105.3 96.3M105.3 85.7L94.7 96.3"
-        opacity=".6"
-      />
-
-      <path
-        d="M87 136V114A13 13 0 0 1 113 114V136"
-      />
-
-      <path
-        d="M92 136V116A8 8 0 0 1 108 116V136"
-        opacity=".5"
-      />
-
-      <path
-        d="M62 122V108A4.5 4.5 0 0 1 71 108V122M129 122V108A4.5 4.5 0 0 1 138 108V122"
-      />
-
-      <path
-        d="M52 100H30V136M148 100H170V136"
-      />
-
-      <path
-        d="M26 100L41 92L56 100M144 100L159 92L174 100"
-      />
-
-      <path
-        d="M41 92V84M37 87H45M159 92V84M155 87H163"
-        stroke-width="1.2"
-      />
-
-      <path
-        d="M36 128V116A3.5 3.5 0 0 1 43 116V128M157 128V116A3.5 3.5 0 0 1 164 116V128"
+        cy="47"
+        r="2"
+        fill="currentColor"
       />
 
     </g>
 
-  </symbol>
 
+    <g stroke-width="2.7">
 
-  <!-- ========================================================================
-       WAX SEAL
-       ======================================================================== -->
+      <g transform="translate(-1 28) scale(0.44)">
 
-  <symbol id="waxseal" viewBox="0 0 100 100">
+        <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
+        <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
+        <path d="M36 62C50 52 70 52 86 63"/>
+        <path d="M50 69C61 61 75 63 84 70"/>
+        <path d="M22 56C30 58 40 58 46 56" opacity=".7"/>
+        <path d="M108 60C117 54 118 44 110 36C103 30 102 22 107 16"/>
+        <path d="M96 58C104 52 106 44 100 38C94 32 92 22 98 14"/>
+        <path d="M98 14C99 7 108 6 110 12L121 15L110 18"/>
 
-    <defs>
-
-      <radialGradient
-        id="wx"
-        cx="38%"
-        cy="32%"
-        r="80%"
-      >
-
-        <stop
-          offset="0"
-          stop-color="#8f2236"
+        <circle
+          cx="105"
+          cy="12.5"
+          r="1"
+          fill="currentColor"
+          stroke="none"
         />
 
-        <stop
-          offset=".55"
-          stop-color="#6a1226"
+        <path
+          d="M12 84C34 88 60 88 84 84M30 91C50 94 72 94 92 91"
+          opacity=".55"
         />
 
-        <stop
-          offset="1"
-          stop-color="#3f0a17"
+      </g>
+
+
+      <g transform="translate(201 28) scale(-0.44 0.44)">
+
+        <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
+        <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
+        <path d="M36 62C50 52 70 52 86 63"/>
+        <path d="M50 69C61 61 75 63 84 70"/>
+        <path d="M22 56C30 58 40 58 46 56" opacity=".7"/>
+        <path d="M108 60C117 54 118 44 110 36C103 30 102 22 107 16"/>
+        <path d="M96 58C104 52 106 44 100 38C94 32 92 22 98 14"/>
+        <path d="M98 14C99 7 108 6 110 12L121 15L110 18"/>
+
+        <circle
+          cx="105"
+          cy="12.5"
+          r="1"
+          fill="currentColor"
+          stroke="none"
         />
 
-      </radialGradient>
-
-      <radialGradient
-        id="wx2"
-        cx="60%"
-        cy="65%"
-        r="70%"
-      >
-
-        <stop
-          offset="0"
-          stop-color="#5b0f20"
+        <path
+          d="M12 84C34 88 60 88 84 84M30 91C50 94 72 94 92 91"
+          opacity=".55"
         />
-
-        <stop
-          offset="1"
-          stop-color="#7d1a2e"
-        />
-
-      </radialGradient>
-
-    </defs>
-
-
-    <path
-      d="M95.4 50.0L97.5 61.7L87.2 69.5L83.4 79.6L73.0 83.3L66.2 92.7L55.0 90.9L44.6 94.8L35.2 89.0L22.6 89.6L16.1 80.0L7.3 72.4L10.6 59.7L7.2 50.0L11.8 40.6L9.1 28.5L17.4 21.1L22.9 10.7L34.9 10.2L44.3 3.4L55.2 7.2L66.5 6.5L72.7 17.1L82.2 21.5L85.4 31.4L96.2 38.6Z"
-      fill="url(#wx)"
-      stroke="#2a0510"
-      stroke-width=".8"
-      stroke-linejoin="round"
-    />
-
-    <circle
-      cx="50"
-      cy="50"
-      r="33"
-      fill="url(#wx2)"
-      stroke="#a63a4d"
-      stroke-opacity=".55"
-      stroke-width="1"
-    />
-
-    <circle
-      cx="50"
-      cy="50"
-      r="28.5"
-      fill="none"
-      stroke="#2a0510"
-      stroke-opacity=".55"
-      stroke-width=".9"
-    />
-
-    <circle
-      cx="50"
-      cy="50"
-      r="26"
-      fill="none"
-      stroke="#b2485c"
-      stroke-opacity=".35"
-      stroke-width=".6"
-      stroke-dasharray="1.2 2.2"
-    />
-
-    <g
-      font-family="Cormorant Garamond,Georgia,serif"
-      text-anchor="middle"
-      fill="#d9a3ad"
-      fill-opacity=".9"
-      stroke="#2a0510"
-      stroke-opacity=".5"
-      stroke-width=".4"
-    >
-
-      <text
-        x="40"
-        y="58"
-        font-size="26"
-        font-weight="600"
-      >G</text>
-
-      <text
-        x="61"
-        y="58"
-        font-size="26"
-        font-weight="600"
-      >R</text>
-
-      <text
-        x="50"
-        y="66.5"
-        font-size="12"
-        font-style="italic"
-      >&amp;</text>
-
-    </g>
-
-    <path
-      d="M39 35L44 30L50 34L56 30L61 35"
-      fill="none"
-      stroke="#d9a3ad"
-      stroke-opacity=".8"
-      stroke-width="1.2"
-      stroke-linejoin="round"
-    />
-
-  </symbol>
-
-
-  <!-- ========================================================================
-       CORNER
-       ======================================================================== -->
-
-  <symbol id="corner" viewBox="0 0 60 60">
-
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.1"
-      stroke-linecap="round"
-    >
-
-      <path d="M2 58V14C2 7 7 2 14 2H58"/>
-      <path d="M9 58V20C9 14 14 9 20 9H58" opacity=".55"/>
-
-      <path d="M16 16C22 16 26 20 26 26C26 30 22 32 20 30C18 28 20 25 23 26"/>
-      <path d="M16 16C16 22 20 26 26 26" opacity=".0"/>
-
-      <circle
-        cx="2"
-        cy="2"
-        r="2.2"
-        fill="currentColor"
-        stroke="none"
-      />
-
-      <path
-        d="M32 2C32 9 36 13 42 13M2 32C9 32 13 36 13 42"
-        opacity=".6"
-      />
-
-    </g>
-
-  </symbol>
-
-
-  <!-- ========================================================================
-       ORNAMENT
-       ======================================================================== -->
-
-  <symbol id="orn" viewBox="0 0 240 24">
-
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path
-        d="M6 12H98M142 12H234"
-        opacity=".8"
-      />
-
-      <path
-        d="M98 12C104 4 110 4 114 10C116 13 118 13 120 13C122 13 124 13 126 10C130 4 136 4 142 12C136 20 130 20 126 14C124 11 122 11 120 11C118 11 116 11 114 14C110 20 104 20 98 12Z"
-      />
-
-      <path
-        d="M120 3L123 12L120 21L117 12Z"
-        fill="currentColor"
-      />
-
-      <circle
-        cx="6"
-        cy="12"
-        r="1.8"
-        fill="currentColor"
-      />
-
-      <circle
-        cx="234"
-        cy="12"
-        r="1.8"
-        fill="currentColor"
-      />
-
-    </g>
-
-  </symbol>
-
-
-  <!-- ========================================================================
-       DOVE
-       ======================================================================== -->
-
-  <symbol id="dove" viewBox="0 0 80 60">
-
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path
-        d="M10 34C18 34 26 30 34 22C40 16 48 10 58 12C56 16 54 18 50 20C56 20 62 22 66 26C60 26 56 28 52 32C48 44 36 52 22 50C28 46 30 44 32 40C26 42 18 40 10 34Z"
-      />
-
-      <path d="M34 22C38 30 42 34 50 34"/>
-      <path d="M58 12C62 10 68 12 70 15L62 15"/>
-
-      <circle
-        cx="60"
-        cy="14"
-        r=".9"
-        fill="currentColor"
-        stroke="none"
-      />
-
-    </g>
-
-  </symbol>
-
-
-  <!-- ========================================================================
-       CROSS
-       ======================================================================== -->
-
-  <symbol id="cross" viewBox="0 0 24 32">
-
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M12 2V30M4 11H20"/>
-
-      <path d="M12 2l0 0M9 2h6M9 30h6M4 8v6M20 8v6"/>
-
-    </g>
-
-  </symbol>
-
-
-  <!-- ========================================================================
-       OLIVE
-       ======================================================================== -->
-
-  <symbol id="olive" viewBox="0 0 120 30">
-
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.1"
-      stroke-linecap="round"
-    >
-
-      <path d="M4 15C40 12 80 12 116 15"/>
-
-      <g
-        fill="currentColor"
-        fill-opacity=".2"
-      >
-
-        <path d="M22 14C24 6 30 4 34 5C32 10 28 14 22 14Z"/>
-        <path d="M22 15C24 22 30 25 34 24C32 19 28 15 22 15Z"/>
-
-        <path d="M48 13C50 5 56 3 60 4C58 9 54 13 48 13Z"/>
-        <path d="M48 14C50 21 56 24 60 23C58 18 54 14 48 14Z"/>
-
-        <path d="M74 13C76 5 82 3 86 4C84 9 80 13 74 13Z"/>
-        <path d="M74 14C76 21 82 24 86 23C84 18 80 14 74 14Z"/>
-
-        <path d="M98 14C100 8 104 6 108 7C106 11 103 14 98 14Z"/>
-        <path d="M98 15C100 20 104 22 108 21C106 17 103 15 98 15Z"/>
 
       </g>
 
     </g>
 
-  </symbol>
+
+    <path
+      d="M60 78H140V140C140 168 121 186 100 196C79 186 60 168 60 140Z"
+      fill="var(--crest-fill,#4a0d1f)"
+      stroke-width="1.8"
+    />
+
+    <path
+      d="M66 84H134V140C134 164 118 180 100 189C82 180 66 164 66 140Z"
+      stroke-width=".8"
+      opacity=".8"
+    />
+
+    <text
+      x="83"
+      y="146"
+      text-anchor="middle"
+      font-family="Cormorant Garamond,Georgia,serif"
+      font-size="46"
+      font-weight="500"
+      fill="currentColor"
+      stroke="none"
+    >G</text>
+
+    <text
+      x="118"
+      y="146"
+      text-anchor="middle"
+      font-family="Cormorant Garamond,Georgia,serif"
+      font-size="46"
+      font-weight="500"
+      fill="currentColor"
+      stroke="none"
+    >R</text>
+
+    <text
+      x="100"
+      y="170"
+      text-anchor="middle"
+      font-family="Cormorant Garamond,Georgia,serif"
+      font-style="italic"
+      font-size="22"
+      fill="currentColor"
+      stroke="none"
+    >&amp;</text>
+
+    <path
+      d="M74 98H126"
+      stroke-width=".8"
+      opacity=".7"
+    />
+
+    <path d="M100 94v0"/>
+
+    <text
+      x="100"
+      y="230"
+      text-anchor="middle"
+      font-family="Cinzel,Georgia,serif"
+      font-size="8"
+      letter-spacing="3"
+      fill="currentColor"
+      stroke="none"
+    >MMXXVI</text>
+
+  </g>
+
+</symbol>
 
 
-  <!-- ========================================================================
-       RINGS
-       ======================================================================== -->
+<!-- ==========================================================================
+     SWANS
+     ========================================================================== -->
 
-  <symbol id="rings" viewBox="0 0 60 36">
+<symbol id="swans" viewBox="0 0 300 100">
 
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.3"
-    >
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
 
-      <circle cx="22" cy="20" r="12"/>
-      <circle cx="38" cy="20" r="12"/>
-
-      <path
-        d="M18 5L22 1L26 5L22 8Z"
-        fill="currentColor"
-        fill-opacity=".3"
-      />
-
-    </g>
-
-  </symbol>
-
-
-  <!-- ========================================================================
-       SINGLE SWAN
-       ======================================================================== -->
-
-  <symbol id="swan" viewBox="0 0 140 100">
-
-    <g
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
+    <g transform="translate(8 0) scale(1)">
 
       <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
       <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
@@ -3642,7 +3066,522 @@ body::after{
 
     </g>
 
-  </symbol>
+
+    <g transform="translate(292 0) scale(-1 1)">
+
+      <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
+      <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
+      <path d="M36 62C50 52 70 52 86 63"/>
+      <path d="M50 69C61 61 75 63 84 70"/>
+      <path d="M22 56C30 58 40 58 46 56" opacity=".7"/>
+      <path d="M108 60C117 54 118 44 110 36C103 30 102 22 107 16"/>
+      <path d="M96 58C104 52 106 44 100 38C94 32 92 22 98 14"/>
+      <path d="M98 14C99 7 108 6 110 12L121 15L110 18"/>
+
+      <circle
+        cx="105"
+        cy="12.5"
+        r="1"
+        fill="currentColor"
+        stroke="none"
+      />
+
+      <path
+        d="M12 84C34 88 60 88 84 84M30 91C50 94 72 94 92 91"
+        opacity=".55"
+      />
+
+    </g>
+
+
+    <circle cx="141" cy="74" r="9"/>
+    <circle cx="159" cy="74" r="9"/>
+
+    <path
+      d="M150 20V40M143 27H157"
+      stroke-width="1.6"
+    />
+
+    <path
+      d="M131 50C140 56 144 56 150 50C156 56 160 56 169 50"
+      opacity=".55"
+    />
+
+  </g>
+
+</symbol>
+
+
+<!-- ==========================================================================
+     CHURCH
+     ========================================================================== -->
+
+<symbol id="church" viewBox="0 0 200 144">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+
+    <path d="M8 136H192"/>
+    <path d="M20 140H180" opacity=".5"/>
+
+    <path d="M52 136V84M148 136V84"/>
+
+    <path d="M46 84L100 54L154 84"/>
+    <path d="M56 84L100 60L144 84" opacity=".55"/>
+
+    <path d="M84 63V34M116 63V34"/>
+
+    <path d="M80 34H120M82 38H118"/>
+
+    <path d="M92 57V45A8 8 0 0 1 108 45V57"/>
+    <path d="M100 37V57" opacity=".5"/>
+
+    <path d="M86 34L100 14L114 34"/>
+
+    <path
+      d="M100 14V3M96 7H104"
+      stroke-width="1.6"
+    />
+
+    <circle
+      cx="100"
+      cy="91"
+      r="7.5"
+    />
+
+    <path
+      d="M100 83.5V98.5M92.5 91H107.5M94.7 85.7L105.3 96.3M105.3 85.7L94.7 96.3"
+      opacity=".6"
+    />
+
+    <path
+      d="M87 136V114A13 13 0 0 1 113 114V136"
+    />
+
+    <path
+      d="M92 136V116A8 8 0 0 1 108 116V136"
+      opacity=".5"
+    />
+
+    <path
+      d="M62 122V108A4.5 4.5 0 0 1 71 108V122M129 122V108A4.5 4.5 0 0 1 138 108V122"
+    />
+
+    <path
+      d="M52 100H30V136M148 100H170V136"
+    />
+
+    <path
+      d="M26 100L41 92L56 100M144 100L159 92L174 100"
+    />
+
+    <path
+      d="M41 92V84M37 87H45M159 92V84M155 87H163"
+      stroke-width="1.2"
+    />
+
+    <path
+      d="M36 128V116A3.5 3.5 0 0 1 43 116V128M157 128V116A3.5 3.5 0 0 1 164 116V128"
+    />
+
+  </g>
+
+</symbol>
+
+
+<!-- ==========================================================================
+     WAX SEAL
+     ========================================================================== -->
+
+<symbol id="waxseal" viewBox="0 0 100 100">
+
+  <defs>
+
+    <radialGradient
+      id="wx"
+      cx="38%"
+      cy="32%"
+      r="80%"
+    >
+
+      <stop
+        offset="0"
+        stop-color="#8f2236"
+      />
+
+      <stop
+        offset=".55"
+        stop-color="#6a1226"
+      />
+
+      <stop
+        offset="1"
+        stop-color="#3f0a17"
+      />
+
+    </radialGradient>
+
+
+    <radialGradient
+      id="wx2"
+      cx="60%"
+      cy="65%"
+      r="70%"
+    >
+
+      <stop
+        offset="0"
+        stop-color="#5b0f20"
+      />
+
+      <stop
+        offset="1"
+        stop-color="#7d1a2e"
+      />
+
+    </radialGradient>
+
+  </defs>
+
+
+  <path
+    d="M95.4 50.0L97.5 61.7L87.2 69.5L83.4 79.6L73.0 83.3L66.2 92.7L55.0 90.9L44.6 94.8L35.2 89.0L22.6 89.6L16.1 80.0L7.3 72.4L10.6 59.7L7.2 50.0L11.8 40.6L9.1 28.5L17.4 21.1L22.9 10.7L34.9 10.2L44.3 3.4L55.2 7.2L66.5 6.5L72.7 17.1L82.2 21.5L85.4 31.4L96.2 38.6Z"
+    fill="url(#wx)"
+    stroke="#2a0510"
+    stroke-width=".8"
+    stroke-linejoin="round"
+  />
+
+  <circle
+    cx="50"
+    cy="50"
+    r="33"
+    fill="url(#wx2)"
+    stroke="#a63a4d"
+    stroke-opacity=".55"
+    stroke-width="1"
+  />
+
+  <circle
+    cx="50"
+    cy="50"
+    r="28.5"
+    fill="none"
+    stroke="#2a0510"
+    stroke-opacity=".55"
+    stroke-width=".9"
+  />
+
+  <circle
+    cx="50"
+    cy="50"
+    r="26"
+    fill="none"
+    stroke="#b2485c"
+    stroke-opacity=".35"
+    stroke-width=".6"
+    stroke-dasharray="1.2 2.2"
+  />
+
+  <g
+    font-family="Cormorant Garamond,Georgia,serif"
+    text-anchor="middle"
+    fill="#d9a3ad"
+    fill-opacity=".9"
+    stroke="#2a0510"
+    stroke-opacity=".5"
+    stroke-width=".4"
+  >
+
+    <text
+      x="40"
+      y="58"
+      font-size="26"
+      font-weight="600"
+    >G</text>
+
+    <text
+      x="61"
+      y="58"
+      font-size="26"
+      font-weight="600"
+    >R</text>
+
+    <text
+      x="50"
+      y="66.5"
+      font-size="12"
+      font-style="italic"
+    >&amp;</text>
+
+  </g>
+
+  <path
+    d="M39 35L44 30L50 34L56 30L61 35"
+    fill="none"
+    stroke="#d9a3ad"
+    stroke-opacity=".8"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+  />
+
+</symbol>
+
+
+<!-- ==========================================================================
+     CORNER
+     ========================================================================== -->
+
+<symbol id="corner" viewBox="0 0 60 60">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.1"
+    stroke-linecap="round"
+  >
+
+    <path d="M2 58V14C2 7 7 2 14 2H58"/>
+    <path d="M9 58V20C9 14 14 9 20 9H58" opacity=".55"/>
+
+    <path d="M16 16C22 16 26 20 26 26C26 30 22 32 20 30C18 28 20 25 23 26"/>
+    <path d="M16 16C16 22 20 26 26 26" opacity=".0"/>
+
+    <circle
+      cx="2"
+      cy="2"
+      r="2.2"
+      fill="currentColor"
+      stroke="none"
+    />
+
+    <path
+      d="M32 2C32 9 36 13 42 13M2 32C9 32 13 36 13 42"
+      opacity=".6"
+    />
+
+  </g>
+
+</symbol>
+
+
+<!-- ==========================================================================
+     ORNAMENT
+     ========================================================================== -->
+
+<symbol id="orn" viewBox="0 0 240 24">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+
+    <path
+      d="M6 12H98M142 12H234"
+      opacity=".8"
+    />
+
+    <path
+      d="M98 12C104 4 110 4 114 10C116 13 118 13 120 13C122 13 124 13 126 10C130 4 136 4 142 12C136 20 130 20 126 14C124 11 122 11 120 11C118 11 116 11 114 14C110 20 104 20 98 12Z"
+    />
+
+    <path
+      d="M120 3L123 12L120 21L117 12Z"
+      fill="currentColor"
+    />
+
+    <circle
+      cx="6"
+      cy="12"
+      r="1.8"
+      fill="currentColor"
+    />
+
+    <circle
+      cx="234"
+      cy="12"
+      r="1.8"
+      fill="currentColor"
+    />
+
+  </g>
+
+</symbol>
+
+
+<!-- ==========================================================================
+     DOVE
+     ========================================================================== -->
+
+<symbol id="dove" viewBox="0 0 80 60">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+
+    <path
+      d="M10 34C18 34 26 30 34 22C40 16 48 10 58 12C56 16 54 18 50 20C56 20 62 22 66 26C60 26 56 28 52 32C48 44 36 52 22 50C28 46 30 44 32 40C26 42 18 40 10 34Z"
+    />
+
+    <path d="M34 22C38 30 42 34 50 34"/>
+    <path d="M58 12C62 10 68 12 70 15L62 15"/>
+
+    <circle
+      cx="60"
+      cy="14"
+      r=".9"
+      fill="currentColor"
+      stroke="none"
+    />
+
+  </g>
+
+</symbol>
+
+
+<!-- ==========================================================================
+     CROSS
+     ========================================================================== -->
+
+<symbol id="cross" viewBox="0 0 24 32">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+
+    <path d="M12 2V30M4 11H20"/>
+
+    <path
+      d="M12 2l0 0M9 2h6M9 30h6M4 8v6M20 8v6"
+    />
+
+  </g>
+
+</symbol>
+
+
+<!-- ==========================================================================
+     OLIVE
+     ========================================================================== -->
+
+<symbol id="olive" viewBox="0 0 120 30">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.1"
+    stroke-linecap="round"
+  >
+
+    <path
+      d="M4 15C40 12 80 12 116 15"
+    />
+
+    <g
+      fill="currentColor"
+      fill-opacity=".2"
+    >
+
+      <path d="M22 14C24 6 30 4 34 5C32 10 28 14 22 14Z"/>
+      <path d="M22 15C24 22 30 25 34 24C32 19 28 15 22 15Z"/>
+
+      <path d="M48 13C50 5 56 3 60 4C58 9 54 13 48 13Z"/>
+      <path d="M48 14C50 21 56 24 60 23C58 18 54 14 48 14Z"/>
+
+      <path d="M74 13C76 5 82 3 86 4C84 9 80 13 74 13Z"/>
+      <path d="M74 14C76 21 82 24 86 23C84 18 80 14 74 14Z"/>
+
+      <path d="M98 14C100 8 104 6 108 7C106 11 103 14 98 14Z"/>
+      <path d="M98 15C100 20 104 22 108 21C106 17 103 15 98 15Z"/>
+
+    </g>
+
+  </g>
+
+</symbol>
+
+
+<!-- ==========================================================================
+     RINGS
+     ========================================================================== -->
+
+<symbol id="rings" viewBox="0 0 60 36">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.3"
+  >
+
+    <circle cx="22" cy="20" r="12"/>
+    <circle cx="38" cy="20" r="12"/>
+
+    <path
+      d="M18 5L22 1L26 5L22 8Z"
+      fill="currentColor"
+      fill-opacity=".3"
+    />
+
+  </g>
+
+</symbol>
+
+
+<!-- ==========================================================================
+     SINGLE SWAN
+     ========================================================================== -->
+
+<symbol id="swan" viewBox="0 0 140 100">
+
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+
+    <path d="M14 52C22 66 40 78 66 78C88 78 104 72 108 60"/>
+    <path d="M14 52C30 50 44 40 62 42C78 44 90 52 96 58"/>
+    <path d="M36 62C50 52 70 52 86 63"/>
+    <path d="M50 69C61 61 75 63 84 70"/>
+    <path d="M22 56C30 58 40 58 46 56" opacity=".7"/>
+    <path d="M108 60C117 54 118 44 110 36C103 30 102 22 107 16"/>
+    <path d="M96 58C104 52 106 44 100 38C94 32 92 22 98 14"/>
+    <path d="M98 14C99 7 108 6 110 12L121 15L110 18"/>
+
+    <circle
+      cx="105"
+      cy="12.5"
+      r="1"
+      fill="currentColor"
+      stroke="none"
+    />
+
+    <path
+      d="M12 84C34 88 60 88 84 84M30 91C50 94 72 94 92 91"
+      opacity=".55"
+    />
+
+  </g>
+
+</symbol>
 
 </svg>
 
@@ -3666,6 +3605,7 @@ body::after{
     >
 
       <span class="env__back"></span>
+
 
       <span
         class="env__card"
@@ -3730,7 +3670,9 @@ body::after{
             viewBox="0 0 240 24"
             aria-hidden="true"
           >
+
             <use href="#orn"/>
+
           </svg>
 
           <span class="c">
@@ -3781,7 +3723,9 @@ body::after{
             class="flap__crest"
             aria-hidden="true"
           >
+
             <use href="#crest"/>
+
           </svg>
 
         </span>
@@ -3829,6 +3773,7 @@ body::after{
 
         </span>
 
+
         <span class="seal__half seal__half--r">
 
           <svg viewBox="0 0 100 100">
@@ -3846,11 +3791,13 @@ body::after{
       Tap to Open Your Invitation
     </p>
 
+
     <p class="gate__note">
       Soft music begins once the invitation is opened.
     </p>
 
   </div>
+
 </div>
 
 
@@ -3880,9 +3827,7 @@ body::after{
     aria-hidden="true"
   >
 
-    <path
-      d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4Z"
-    />
+    <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4Z"/>
 
     <path
       d="M15.5 9c1.3 1.6 1.3 4.4 0 6M18.2 6.6c2.6 3 2.6 8.8 0 11.8"
@@ -3902,13 +3847,9 @@ body::after{
     aria-hidden="true"
   >
 
-    <path
-      d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4Z"
-    />
+    <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4Z"/>
 
-    <path
-      d="M16 9.5l5 5M21 9.5l-5 5"
-    />
+    <path d="M16 9.5l5 5M21 9.5l-5 5"/>
 
   </svg>
 
@@ -3951,1296 +3892,26 @@ body::after{
 >
 
 
-  <!-- ========================================================================
-       I — OUR INVITATION
-       ======================================================================== -->
+<!-- ==========================================================================
+     I — OUR INVITATION
+     ========================================================================== -->
 
-  <section
-    class="page page--ivory hero"
-    id="invitation"
-    aria-labelledby="names"
-  >
+<section
+  class="page page--ivory hero"
+  id="invitation"
+  aria-labelledby="names"
+>
 
-    <div data-frame></div>
+  <div data-frame></div>
 
-    <div class="page__in">
 
-      <svg
-        class="crest hero__crest rv"
-        data-par="-.05"
-        role="img"
-        aria-label="Wedding crest of George and Reenu"
-      >
-
-        <use href="#crest"/>
-
-      </svg>
-
-
-      <p
-        class="label hero__label rv"
-        style="--d:.3s"
-      >
-
-        With joy in our hearts
-
-      </p>
-
-
-      <h1
-        class="names letters"
-        id="names"
-        aria-label="George Saju and Reenu Thomas"
-      >
-
-        <span
-          class="names__line"
-          aria-hidden="true"
-          data-split
-          data-t="groomName"
-          style="--base:.3s"
-        ></span>
-
-        <span class="names__amp">
-          &amp;
-        </span>
-
-        <span
-          class="names__line"
-          aria-hidden="true"
-          data-split
-          data-t="brideName"
-          style="--base:1.5s"
-        ></span>
-
-      </h1>
-
-
-      <svg
-        class="orn rv"
-        style="--d:1.2s"
-        aria-hidden="true"
-      >
-
-        <use href="#orn"/>
-
-      </svg>
-
-
-      <p
-        class="verse rv"
-        style="--d:1.6s"
-      >
-
-        Together with our families, we joyfully invite you to share
-        in the beginning of our journey as one.
-
-      </p>
-
-
-      <div
-        class="when rv"
-        style="--d:2.1s"
-      >
-
-        <p class="label">
-          Our Wedding Ceremony
-        </p>
-
-        <p
-          class="when__date"
-          data-t="dateUpper"
-        ></p>
-
-        <p
-          class="when__time"
-          data-t="time"
-        ></p>
-
-      </div>
-
-
-      <a
-        class="cue"
-        href="#ceremony"
-        aria-label="Scroll to our ceremony details"
-      ></a>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       II — OUR CEREMONY
-       ======================================================================== -->
-
-  <section
-    class="page page--wine"
-    id="ceremony"
-    data-edge
-    aria-labelledby="ceremony-h"
-  >
-
-    <div class="page__in">
-
-      <p
-        class="folio rv"
-        aria-hidden="true"
-      >
-        II
-      </p>
-
-
-      <svg
-        class="church draw rv"
-        data-par=".04"
-        role="img"
-        aria-label="Line illustration of our church with a bell tower and cross"
-      >
-
-        <use href="#church"/>
-
-      </svg>
-
-
-      <h2
-        class="label rv"
-        id="ceremony-h"
-      >
-
-        Our Ceremony
-
-      </h2>
-
-
-      <p
-        class="church-description rv"
-        style="--d:.08s"
-      >
-
-        Within these hallowed walls, I have found my way.
-        When I was lost, this place gave me a path;
-        when I was broken, it gave me peace;
-        when doubt filled my heart, prayer gave me light.
-        
-        Here, before Jesus Christ, the Father, the Holy Spirit,
-        and under the gentle care of Holy Mary,
-        I have placed my hopes, my fears, and my dreams.
-        
-        So much of what I have received began with a prayer here.
-        
-        And now, as a new chapter of my life begins,
-        there is no place more dear to my heart.
-        
-        Here, where I have so often sought His light,
-        Reenu and I shall begin our journey together —
-        with faith in our hearts and His grace before us.
-
-
-      </p>
-
-
-      <p
-        class="venue rv"
-        style="--d:.15s"
-        data-venue
-      ></p>
-
-
-      <p
-        class="place rv"
-        style="--d:.3s"
-        data-t="place"
-      ></p>
-
-
-      <svg
-        class="olive rv"
-        style="--d:.4s"
-        aria-hidden="true"
-      >
-
-        <use href="#olive"/>
-
-      </svg>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       III — OUR FAMILIES
-       ======================================================================== -->
-
-  <section
-    class="page page--parch"
-    id="families"
-    data-edge
-    aria-labelledby="families-h"
-  >
-
-    <div class="page__in page__in--wide">
-
-      <p
-        class="folio rv"
-        aria-hidden="true"
-      >
-        III
-      </p>
-
-
-      <h2
-        class="h-caps letters"
-        id="families-h"
-        data-split
-      >
-
-        Our Families
-
-      </h2>
-
-
-      <svg
-        class="orn rv"
-        aria-hidden="true"
-      >
-
-        <use href="#orn"/>
-
-      </svg>
-
-
-      <div
-        class="panels"
-        id="panels"
-      ></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       IV — SCRATCH TO REVEAL
-       ======================================================================== -->
-
-  <section
-    class="page page--wine"
-    id="date"
-    data-edge
-    aria-labelledby="date-h"
-  >
-
-    <div class="page__in">
-
-      <p
-        class="folio rv"
-        aria-hidden="true"
-      >
-        IV
-      </p>
-
-
-      <h2
-        class="scratch-title letters"
-        id="date-h"
-        data-split
-      >
-
-        Our special date awaits...
-
-      </h2>
-
-
-      <div
-        class="scratch rv"
-        id="scratch"
-        style="--d:.4s"
-      >
-
-        <div class="scratch__under">
-
-          <span
-            class="scratch__d"
-            data-t="day"
-          ></span>
-
-          <span
-            class="scratch__m"
-            data-t="monthUpper"
-          ></span>
-
-          <span
-            class="scratch__y"
-            data-t="year"
-          ></span>
-
-        </div>
-
-
-        <canvas
-          id="scratchCv"
-          role="button"
-          tabindex="0"
-          aria-label="Scratch to reveal our wedding date. Press Enter or Space to reveal it instantly."
-        ></canvas>
-
-      </div>
-
-
-      <p
-        class="scratch__hint"
-        id="scratchHint"
-      >
-        Scratch to reveal
-      </p>
-
-
-      <p
-        class="vh"
-        id="scratchLive"
-        role="status"
-        aria-live="polite"
-      ></p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       V — COUNTDOWN
-       ======================================================================== -->
-
-  <section
-    class="page page--ivory"
-    id="countdown"
-    data-edge
-    aria-labelledby="cd-h"
-  >
-
-    <div data-frame></div>
-
-    <div class="page__in">
-
-      <p
-        class="folio rv"
-        aria-hidden="true"
-      >
-        V
-      </p>
-
-
-      <h2
-        class="h-caps letters"
-        id="cd-h"
-        data-split
-      >
-
-        Our Day Approaches
-
-      </h2>
-
-
-      <p
-        class="vh"
-        id="cdText"
-      ></p>
-
-
-      <div
-        class="cd rv"
-        id="cd"
-        aria-hidden="true"
-        style="--d:.3s"
-      >
-
-        <div class="cd__cell">
-
-          <span
-            class="cd__n"
-            id="cdD"
-          >
-            00
-          </span>
-
-          <span class="cd__l">
-            Days
-          </span>
-
-        </div>
-
-
-        <span class="cd__sep">
-          :
-        </span>
-
-
-        <div class="cd__cell">
-
-          <span
-            class="cd__n"
-            id="cdH"
-          >
-            00
-          </span>
-
-          <span class="cd__l">
-            Hours
-          </span>
-
-        </div>
-
-
-        <span class="cd__sep">
-          :
-        </span>
-
-
-        <div class="cd__cell">
-
-          <span
-            class="cd__n"
-            id="cdM"
-          >
-            00
-          </span>
-
-          <span class="cd__l">
-            Minutes
-          </span>
-
-        </div>
-
-
-        <span class="cd__sep">
-          :
-        </span>
-
-
-        <div class="cd__cell">
-
-          <span
-            class="cd__n"
-            id="cdS"
-          >
-            00
-          </span>
-
-          <span class="cd__l">
-            Seconds
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <p
-        class="cd__done"
-        id="cdDone"
-        hidden
-      >
-
-        Today, two hearts become one
-
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       VI — OUR STORY
-       ======================================================================== -->
-
-  <section
-    class="page page--deep"
-    id="story"
-    data-edge
-    aria-labelledby="story-h"
-  >
-
-    <div class="page__in">
-
-      <p
-        class="folio rv"
-        aria-hidden="true"
-      >
-        VI
-      </p>
-
-
-      <svg
-        class="story__swans draw rv"
-        aria-hidden="true"
-      >
-
-        <use href="#swans"/>
-
-      </svg>
-
-
-      <h2
-        class="h-caps letters mt"
-        id="story-h"
-        data-split
-        style="--mt:26px"
-      >
-
-        Our Story
-
-      </h2>
-
-
-      <ol
-        class="story"
-        style="list-style:none;padding:0;margin-bottom:0"
-      >
-
-
-        <!-- STORY I -->
-
-        <li class="step rv">
-
-          <span
-            class="step__n"
-            aria-hidden="true"
-          >
-            I
-          </span>
-
-
-          <h3 class="step__t">
-            Where it began
-          </h3>
-
-
-          <p class="step__p">
-
-            It began with a simple college friendship,
-            easy, unhurried, and quietly special.
-
-          </p>
-
-        </li>
-
-
-        <!-- STORY II -->
-
-        <li class="step rv">
-
-          <span
-            class="step__n"
-            aria-hidden="true"
-          >
-            II
-          </span>
-
-
-          <h3 class="step__t">
-
-            Where friendship became something more
-
-          </h3>
-
-
-          <p class="step__p">
-
-            Through countless moments, laughter, and memories,
-            our friendship slowly grew into something more.
-
-          </p>
-
-        </li>
-
-
-        <!-- STORY III -->
-
-        <li class="step rv">
-
-          <span
-            class="step__n"
-            aria-hidden="true"
-          >
-            III
-          </span>
-
-
-          <h3 class="step__t">
-            The promise
-          </h3>
-
-
-          <p class="step__p">
-
-            With hearts certain and promises sincere,
-            we chose to walk through life together.
-
-          </p>
-
-        </li>
-
-
-        <!-- STORY IV -->
-
-        <li class="step rv">
-
-          <span
-            class="step__n"
-            aria-hidden="true"
-          >
-            IV
-          </span>
-
-
-          <h3 class="step__t">
-            The beginning of forever
-          </h3>
-
-
-          <p
-            class="step__date"
-            data-t="dateLong"
-          ></p>
-
-        </li>
-
-      </ol>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       VII — OUR WEDDING DETAILS
-       ======================================================================== -->
-
-  <section
-    class="page page--parch"
-    id="details"
-    data-edge
-    aria-labelledby="details-h"
-  >
-
-    <div class="page__in">
-
-      <p
-        class="folio rv"
-        aria-hidden="true"
-      >
-        VII
-      </p>
-
-
-      <div class="card rv">
-
-        <div data-frame="sm"></div>
-
-
-        <svg
-          class="crest"
-          aria-hidden="true"
-        >
-
-          <use href="#crest"/>
-
-        </svg>
-
-
-        <h2
-          class="h-caps"
-          id="details-h"
-          style="color:var(--wine)"
-        >
-
-          Our Wedding Ceremony
-
-        </h2>
-
-
-        <svg
-          class="orn"
-          aria-hidden="true"
-          style="margin:20px auto 0"
-        >
-
-          <use href="#orn"/>
-
-        </svg>
-
-
-        <p
-          class="detail-date"
-          data-t="dateLong"
-        ></p>
-
-
-        <p
-          class="detail-day"
-          data-t="weekday"
-        ></p>
-
-
-        <p
-          class="detail-time"
-          data-t="time"
-        ></p>
-
-
-        <p
-          class="detail-venue"
-          data-venue
-        ></p>
-
-
-        <p
-          class="detail-place"
-          data-t="place"
-        ></p>
-
-
-        <div class="cal">
-
-          <button
-            class="btn"
-            id="calBtn"
-            type="button"
-            aria-expanded="false"
-            aria-controls="calMenu"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-
-              <rect
-                x="3.5"
-                y="5"
-                width="17"
-                height="15"
-                rx="1"
-              />
-
-              <path
-                d="M3.5 10h17M8 3v4M16 3v4"
-              />
-
-            </svg>
-
-            Add to Calendar
-
-          </button>
-
-
-          <ul
-            class="cal__menu"
-            id="calMenu"
-          >
-
-            <li>
-
-              <a
-                id="calGoogle"
-                href="#"
-                target="_blank"
-                rel="noopener"
-              >
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.3"
-                  aria-hidden="true"
-                >
-
-                  <rect
-                    x="3.5"
-                    y="5"
-                    width="17"
-                    height="15"
-                    rx="1"
-                  />
-
-                  <path d="M3.5 10h17"/>
-
-                </svg>
-
-                Google Calendar
-
-              </a>
-
-            </li>
-
-
-            <li>
-
-              <a
-                id="calApple"
-                href="#"
-              >
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.3"
-                  aria-hidden="true"
-                >
-
-                  <rect
-                    x="3.5"
-                    y="5"
-                    width="17"
-                    height="15"
-                    rx="1"
-                  />
-
-                  <path d="M3.5 10h17"/>
-
-                </svg>
-
-                Apple Calendar
-
-              </a>
-
-            </li>
-
-
-            <li>
-
-              <a
-                id="calOutlook"
-                href="#"
-                target="_blank"
-                rel="noopener"
-              >
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.3"
-                  aria-hidden="true"
-                >
-
-                  <rect
-                    x="3.5"
-                    y="5"
-                    width="17"
-                    height="15"
-                    rx="1"
-                  />
-
-                  <path d="M3.5 10h17"/>
-
-                </svg>
-
-                Outlook Calendar
-
-              </a>
-
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       VIII — FIND YOUR WAY
-       ======================================================================== -->
-
-  <section
-    class="page page--ivory"
-    id="map"
-    data-edge
-    aria-labelledby="map-h"
-  >
-
-    <div class="page__in">
-
-      <p
-        class="folio rv"
-        aria-hidden="true"
-      >
-        VIII
-      </p>
-
-
-      <h2
-        class="h-caps letters"
-        id="map-h"
-        data-split
-      >
-
-        Find Your Way
-
-      </h2>
-
-
-      <div
-        class="mapcard rv"
-        style="--d:.3s"
-      >
-
-        <svg
-          class="map"
-          viewBox="0 0 400 250"
-          role="img"
-          aria-label="Decorative map card with a pin marking our church"
-          preserveAspectRatio="xMidYMid slice"
-        >
-
-          <rect
-            width="400"
-            height="250"
-            fill="#eadcbc"
-          />
-
-
-          <g
-            fill="none"
-            stroke="#80622a"
-            stroke-width=".8"
-            opacity=".32"
-          >
-
-            <ellipse
-              cx="90"
-              cy="60"
-              rx="70"
-              ry="38"
-            />
-
-            <ellipse
-              cx="90"
-              cy="60"
-              rx="50"
-              ry="26"
-            />
-
-            <ellipse
-              cx="90"
-              cy="60"
-              rx="28"
-              ry="14"
-            />
-
-            <ellipse
-              cx="330"
-              cy="200"
-              rx="90"
-              ry="46"
-            />
-
-            <ellipse
-              cx="330"
-              cy="200"
-              rx="64"
-              ry="30"
-            />
-
-            <ellipse
-              cx="330"
-              cy="200"
-              rx="36"
-              ry="16"
-            />
-
-            <path
-              d="M-10 150C60 130 110 190 190 170S320 120 410 150"
-            />
-
-            <path
-              d="M-10 90C50 70 130 110 200 90S330 40 410 60"
-            />
-
-          </g>
-
-
-          <g
-            fill="none"
-            stroke="#80622a"
-            stroke-width="1.2"
-            stroke-linecap="round"
-            opacity=".55"
-          >
-
-            <path
-              d="M-10 214C70 196 120 232 200 178S310 100 410 112"
-            />
-
-            <path
-              d="M200 178C204 140 196 90 214 -10"
-            />
-
-            <path
-              d="M200 178C180 200 150 236 132 262"
-              stroke-dasharray="2 5"
-            />
-
-          </g>
-
-
-          <g
-            stroke="#80622a"
-            stroke-width=".6"
-            opacity=".2"
-          >
-
-            <path d="M0 50H400"/>
-            <path d="M0 100H400"/>
-            <path d="M0 150H400"/>
-            <path d="M0 200H400"/>
-
-            <path d="M50 0V250"/>
-            <path d="M100 0V250"/>
-            <path d="M150 0V250"/>
-            <path d="M200 0V250"/>
-            <path d="M250 0V250"/>
-            <path d="M300 0V250"/>
-            <path d="M350 0V250"/>
-
-          </g>
-
-
-          <g
-            transform="translate(340 46)"
-            fill="none"
-            stroke="#80622a"
-            stroke-width="1"
-            opacity=".8"
-          >
-
-            <circle r="18"/>
-            <circle r="14" opacity=".5"/>
-
-            <path
-              d="M0-24L4-4L0 0L-4-4ZM0 24L4 4L0 0L-4 4ZM-24 0L-4-4L0 0L-4 4ZM24 0L4-4L0 0L4 4Z"
-              fill="#80622a"
-              fill-opacity=".22"
-            />
-
-            <text
-              y="-28"
-              text-anchor="middle"
-              font-family="Cinzel,serif"
-              font-size="8"
-              fill="#80622a"
-              stroke="none"
-            >
-              N
-            </text>
-
-          </g>
-
-
-          <ellipse
-            class="pin-ring"
-            cx="200"
-            cy="178"
-            rx="26"
-            ry="9"
-            fill="none"
-            stroke="#651a2e"
-            stroke-width="1.2"
-          />
-
-
-          <ellipse
-            cx="200"
-            cy="178"
-            rx="9"
-            ry="3.2"
-            fill="#2e0714"
-            opacity=".28"
-          />
-
-
-          <path
-            d="M200 92C184 92 172 104 172 120C172 142 200 174 200 174C200 174 228 142 228 120C228 104 216 92 200 92Z"
-            fill="#4a0d1f"
-            stroke="#b8964f"
-            stroke-width="1.6"
-          />
-
-
-          <path
-            d="M200 106V134M190 116H210"
-            stroke="#dcc48a"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
-
-        <div class="mapcard__cap">
-
-          <p
-            class="v"
-            data-venue-inline
-          ></p>
-
-
-          <p
-            class="p"
-            data-t="place"
-          ></p>
-
-
-          <a
-            class="btn"
-            id="mapBtn"
-            href="#"
-            target="_blank"
-            rel="noopener"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-
-              <path
-                d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.800 12 21 12 21Z"
-              />
-
-              <circle
-                cx="12"
-                cy="9.5"
-                r="2.5"
-              />
-
-            </svg>
-
-            Open in Maps
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       X — OUR NEXT CHAPTER
-       ======================================================================== -->
-
-  <section
-    class="page page--deep"
-    id="closing"
-    data-edge
-    aria-labelledby="closing-h"
-  >
-
-    <div data-frame></div>
-
-    <div class="page__in">
-
-      <svg
-        class="closing__swans draw rv"
-        aria-hidden="true"
-      >
-
-        <use href="#swans"/>
-
-      </svg>
-
-
-      <h2
-        class="h-caps letters"
-        id="closing-h"
-        data-split
-      >
-
-        And so, our next chapter begins...
-
-      </h2>
-
-
-      <p
-        class="closing__names rv"
-        style="--d:.2s"
-      >
-
-        George &amp; Reenu
-
-      </p>
-
-
-      <p
-        class="closing__date rv"
-        data-t="dots"
-      ></p>
-
-
-      <p class="closing__quote rv">
-
-        “With love in our hearts, laughter in our days,
-        and a lifetime waiting to be written.”
-
-      </p>
-
-
-      <svg
-        class="crest closing__crest rv"
-        role="img"
-        aria-label="G and R wedding crest"
-      >
-
-        <use href="#crest"/>
-
-      </svg>
-
-
-      <p class="closing__thanks rv">
-
-        Thank you for being part of our story.
-
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ========================================================================
-       FOOTER
-       ======================================================================== -->
-
-  <footer class="foot">
+  <div class="page__in">
 
     <svg
-      class="crest"
-      aria-hidden="true"
+      class="crest hero__crest rv"
+      data-par="-.05"
+      role="img"
+      aria-label="Wedding crest of George and Reenu"
     >
 
       <use href="#crest"/>
@@ -5248,16 +3919,1249 @@ body::after{
     </svg>
 
 
-    <p>
-      George &amp; Reenu
+    <p
+      class="label hero__label rv"
+      style="--d:.3s"
+    >
+
+      With joy in our hearts
+
+    </p>
+
+
+    <h1
+      class="names letters"
+      id="names"
+      aria-label="George Saju and Reenu Thomas"
+    >
+
+      <span
+        class="names__line"
+        aria-hidden="true"
+        data-split
+        data-t="groomName"
+        style="--base:.3s"
+      ></span>
+
+
+      <span class="names__amp">
+        &amp;
+      </span>
+
+
+      <span
+        class="names__line"
+        aria-hidden="true"
+        data-split
+        data-t="brideName"
+        style="--base:1.5s"
+      ></span>
+
+    </h1>
+
+
+    <svg
+      class="orn rv"
+      style="--d:1.2s"
+      aria-hidden="true"
+    >
+
+      <use href="#orn"/>
+
+    </svg>
+
+
+    <p
+      class="verse rv"
+      style="--d:1.6s"
+    >
+
+      Together with our families, we joyfully invite you to share
+      in the beginning of our journey as one.
+
+    </p>
+
+
+    <div
+      class="when rv"
+      style="--d:2.1s"
+    >
+
+      <p class="label">
+        Our Wedding Ceremony
+      </p>
+
+
+      <p
+        class="when__date"
+        data-t="dateUpper"
+      ></p>
+
+
+      <p
+        class="when__time"
+        data-t="time"
+      ></p>
+
+    </div>
+
+
+    <a
+      class="cue"
+      href="#ceremony"
+      aria-label="Scroll to our ceremony details"
+    ></a>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     II — OUR CEREMONY
+     ========================================================================== -->
+
+<section
+  class="page page--wine"
+  id="ceremony"
+  data-edge
+  aria-labelledby="ceremony-h"
+>
+
+  <div class="page__in">
+
+    <p
+      class="folio rv"
+      aria-hidden="true"
+    >
+      II
+    </p>
+
+
+    <svg
+      class="church draw rv"
+      data-par=".04"
+      role="img"
+      aria-label="Line illustration of our church with a bell tower and cross"
+    >
+
+      <use href="#church"/>
+
+    </svg>
+
+
+    <h2
+      class="label rv"
+      id="ceremony-h"
+    >
+
+      Our Ceremony
+
+    </h2>
+
+
+    <p
+      class="church-description rv"
+      style="--d:.08s"
+    >
+
+      Within these hallowed walls, I have found my way.
+
+      When I was lost, this place gave me a path;
+      when I was broken, it gave me peace;
+      when doubt filled my heart, prayer gave me light.
+
+      Here, before Jesus Christ, the Father, the Holy Spirit,
+      and under the gentle care of Holy Mary,
+      I have placed my hopes, my fears, and my dreams.
+
+      So much of what I have received began with a prayer here.
+
+      And now, as a new chapter of my life begins,
+      there is no place more dear to my heart.
+
+      Here, where I have so often sought His light,
+      Reenu and I shall begin our journey together —
+      with faith in our hearts and His grace before us.
+
     </p>
 
 
     <p
-      data-t="dateUpper"
+      class="venue rv"
+      style="--d:.15s"
+      data-venue
     ></p>
 
-  </footer>
+
+    <p
+      class="place rv"
+      style="--d:.3s"
+      data-t="place"
+    ></p>
+
+
+    <svg
+      class="olive rv"
+      style="--d:.4s"
+      aria-hidden="true"
+    >
+
+      <use href="#olive"/>
+
+    </svg>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     III — OUR FAMILIES
+     ========================================================================== -->
+
+<section
+  class="page page--parch"
+  id="families"
+  data-edge
+  aria-labelledby="families-h"
+>
+
+  <div class="page__in page__in--wide">
+
+    <p
+      class="folio rv"
+      aria-hidden="true"
+    >
+      III
+    </p>
+
+
+    <h2
+      class="h-caps letters"
+      id="families-h"
+      data-split
+    >
+
+      Our Families
+
+    </h2>
+
+
+    <svg
+      class="orn rv"
+      aria-hidden="true"
+    >
+
+      <use href="#orn"/>
+
+    </svg>
+
+
+    <div
+      class="panels"
+      id="panels"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     IV — SCRATCH TO REVEAL
+     ========================================================================== -->
+
+<section
+  class="page page--wine"
+  id="date"
+  data-edge
+  aria-labelledby="date-h"
+>
+
+  <div class="page__in">
+
+    <p
+      class="folio rv"
+      aria-hidden="true"
+    >
+      IV
+    </p>
+
+
+    <h2
+      class="scratch-title letters"
+      id="date-h"
+      data-split
+    >
+
+      Our special date awaits...
+
+    </h2>
+
+
+    <div
+      class="scratch rv"
+      id="scratch"
+      style="--d:.4s"
+    >
+
+      <div class="scratch__under">
+
+        <span
+          class="scratch__d"
+          data-t="day"
+        ></span>
+
+
+        <span
+          class="scratch__m"
+          data-t="monthUpper"
+        ></span>
+
+
+        <span
+          class="scratch__y"
+          data-t="year"
+        ></span>
+
+      </div>
+
+
+      <canvas
+        id="scratchCv"
+        role="button"
+        tabindex="0"
+        aria-label="Scratch to reveal our wedding date. Press Enter or Space to reveal it instantly."
+      ></canvas>
+
+    </div>
+
+
+    <p
+      class="scratch__hint"
+      id="scratchHint"
+    >
+      Scratch to reveal
+    </p>
+
+
+    <p
+      class="vh"
+      id="scratchLive"
+      role="status"
+      aria-live="polite"
+    ></p>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     V — COUNTDOWN
+     ========================================================================== -->
+
+<section
+  class="page page--ivory"
+  id="countdown"
+  data-edge
+  aria-labelledby="cd-h"
+>
+
+  <div data-frame></div>
+
+
+  <div class="page__in">
+
+    <p
+      class="folio rv"
+      aria-hidden="true"
+    >
+      V
+    </p>
+
+
+    <h2
+      class="h-caps letters"
+      id="cd-h"
+      data-split
+    >
+
+      Our Day Approaches
+
+    </h2>
+
+
+    <p
+      class="vh"
+      id="cdText"
+    ></p>
+
+
+    <div
+      class="cd rv"
+      id="cd"
+      aria-hidden="true"
+      style="--d:.3s"
+    >
+
+      <div class="cd__cell">
+
+        <span
+          class="cd__n"
+          id="cdD"
+        >
+          00
+        </span>
+
+        <span class="cd__l">
+          Days
+        </span>
+
+      </div>
+
+
+      <span class="cd__sep">
+        :
+      </span>
+
+
+      <div class="cd__cell">
+
+        <span
+          class="cd__n"
+          id="cdH"
+        >
+          00
+        </span>
+
+        <span class="cd__l">
+          Hours
+        </span>
+
+      </div>
+
+
+      <span class="cd__sep">
+        :
+      </span>
+
+
+      <div class="cd__cell">
+
+        <span
+          class="cd__n"
+          id="cdM"
+        >
+          00
+        </span>
+
+        <span class="cd__l">
+          Minutes
+        </span>
+
+      </div>
+
+
+      <span class="cd__sep">
+        :
+      </span>
+
+
+      <div class="cd__cell">
+
+        <span
+          class="cd__n"
+          id="cdS"
+        >
+          00
+        </span>
+
+        <span class="cd__l">
+          Seconds
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <p
+      class="cd__done"
+      id="cdDone"
+      hidden
+    >
+      Today, two hearts become one
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     VI — OUR STORY
+     ========================================================================== -->
+
+<section
+  class="page page--deep"
+  id="story"
+  data-edge
+  aria-labelledby="story-h"
+>
+
+  <div class="page__in">
+
+    <p
+      class="folio rv"
+      aria-hidden="true"
+    >
+      VI
+    </p>
+
+
+    <svg
+      class="story__swans draw rv"
+      aria-hidden="true"
+    >
+
+      <use href="#swans"/>
+
+    </svg>
+
+
+    <h2
+      class="h-caps letters mt"
+      id="story-h"
+      data-split
+      style="--mt:26px"
+    >
+
+      Our Story
+
+    </h2>
+
+
+    <ol
+      class="story"
+      style="list-style:none;padding:0;margin-bottom:0"
+    >
+
+
+      <li class="step rv">
+
+        <span
+          class="step__n"
+          aria-hidden="true"
+        >
+          I
+        </span>
+
+
+        <h3 class="step__t">
+          Where it began
+        </h3>
+
+
+        <p class="step__p">
+
+          It began with a simple college friendship,
+          easy, unhurried, and quietly special.
+
+        </p>
+
+      </li>
+
+
+      <li class="step rv">
+
+        <span
+          class="step__n"
+          aria-hidden="true"
+        >
+          II
+        </span>
+
+
+        <h3 class="step__t">
+          Where friendship became something more
+        </h3>
+
+
+        <p class="step__p">
+
+          Through countless moments, laughter, and memories,
+          our friendship slowly grew into something more.
+
+        </p>
+
+      </li>
+
+
+      <li class="step rv">
+
+        <span
+          class="step__n"
+          aria-hidden="true"
+        >
+          III
+        </span>
+
+
+        <h3 class="step__t">
+          The promise
+        </h3>
+
+
+        <p class="step__p">
+
+          With hearts certain and promises sincere,
+          we chose to walk through life together.
+
+        </p>
+
+      </li>
+
+
+      <li class="step rv">
+
+        <span
+          class="step__n"
+          aria-hidden="true"
+        >
+          IV
+        </span>
+
+
+        <h3 class="step__t">
+          The beginning of forever
+        </h3>
+
+
+        <p
+          class="step__date"
+          data-t="dateLong"
+        ></p>
+
+      </li>
+
+    </ol>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     VII — WEDDING DETAILS
+     ========================================================================== -->
+
+<section
+  class="page page--parch"
+  id="details"
+  data-edge
+  aria-labelledby="details-h"
+>
+
+  <div class="page__in">
+
+    <p
+      class="folio rv"
+      aria-hidden="true"
+    >
+      VII
+    </p>
+
+
+    <div class="card rv">
+
+      <div data-frame="sm"></div>
+
+
+      <svg
+        class="crest"
+        aria-hidden="true"
+      >
+
+        <use href="#crest"/>
+
+      </svg>
+
+
+      <h2
+        class="h-caps"
+        id="details-h"
+        style="color:var(--wine)"
+      >
+
+        Our Wedding Ceremony
+
+      </h2>
+
+
+      <svg
+        class="orn"
+        aria-hidden="true"
+        style="margin:20px auto 0"
+      >
+
+        <use href="#orn"/>
+
+      </svg>
+
+
+      <p
+        class="detail-date"
+        data-t="dateLong"
+      ></p>
+
+
+      <p
+        class="detail-day"
+        data-t="weekday"
+      ></p>
+
+
+      <p
+        class="detail-time"
+        data-t="time"
+      ></p>
+
+
+      <p
+        class="detail-venue"
+        data-venue
+      ></p>
+
+
+      <p
+        class="detail-place"
+        data-t="place"
+      ></p>
+
+
+      <div class="cal">
+
+        <button
+          class="btn"
+          id="calBtn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="calMenu"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+
+            <rect
+              x="3.5"
+              y="5"
+              width="17"
+              height="15"
+              rx="1"
+            />
+
+            <path
+              d="M3.5 10h17M8 3v4M16 3v4"
+            />
+
+          </svg>
+
+          Add to Calendar
+
+        </button>
+
+
+        <ul
+          class="cal__menu"
+          id="calMenu"
+        >
+
+          <li>
+
+            <a
+              id="calGoogle"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.3"
+                aria-hidden="true"
+              >
+
+                <rect
+                  x="3.5"
+                  y="5"
+                  width="17"
+                  height="15"
+                  rx="1"
+                />
+
+                <path d="M3.5 10h17"/>
+
+              </svg>
+
+              Google Calendar
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              id="calApple"
+              href="#"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.3"
+                aria-hidden="true"
+              >
+
+                <rect
+                  x="3.5"
+                  y="5"
+                  width="17"
+                  height="15"
+                  rx="1"
+                />
+
+                <path d="M3.5 10h17"/>
+
+              </svg>
+
+              Apple Calendar
+
+            </a>
+
+          </li>
+
+
+          <li>
+
+            <a
+              id="calOutlook"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.3"
+                aria-hidden="true"
+              >
+
+                <rect
+                  x="3.5"
+                  y="5"
+                  width="17"
+                  height="15"
+                  rx="1"
+                />
+
+                <path d="M3.5 10h17"/>
+
+              </svg>
+
+              Outlook Calendar
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     VIII — FIND YOUR WAY
+     ========================================================================== -->
+
+<section
+  class="page page--ivory"
+  id="map"
+  data-edge
+  aria-labelledby="map-h"
+>
+
+  <div class="page__in">
+
+    <p
+      class="folio rv"
+      aria-hidden="true"
+    >
+      VIII
+    </p>
+
+
+    <h2
+      class="h-caps letters"
+      id="map-h"
+      data-split
+    >
+
+      Find Your Way
+
+    </h2>
+
+
+    <div
+      class="mapcard rv"
+      style="--d:.3s"
+    >
+
+      <svg
+        class="map"
+        viewBox="0 0 400 250"
+        role="img"
+        aria-label="Decorative map card with a pin marking our church"
+        preserveAspectRatio="xMidYMid slice"
+      >
+
+        <rect
+          width="400"
+          height="250"
+          fill="#eadcbc"
+        />
+
+
+        <g
+          fill="none"
+          stroke="#80622a"
+          stroke-width=".8"
+          opacity=".32"
+        >
+
+          <ellipse cx="90" cy="60" rx="70" ry="38"/>
+          <ellipse cx="90" cy="60" rx="50" ry="26"/>
+          <ellipse cx="90" cy="60" rx="28" ry="14"/>
+
+          <ellipse cx="330" cy="200" rx="90" ry="46"/>
+          <ellipse cx="330" cy="200" rx="64" ry="30"/>
+          <ellipse cx="330" cy="200" rx="36" ry="16"/>
+
+          <path
+            d="M-10 150C60 130 110 190 190 170S320 120 410 150"
+          />
+
+          <path
+            d="M-10 90C50 70 130 110 200 90S330 40 410 60"
+          />
+
+        </g>
+
+
+        <g
+          fill="none"
+          stroke="#80622a"
+          stroke-width="1.2"
+          stroke-linecap="round"
+          opacity=".55"
+        >
+
+          <path
+            d="M-10 214C70 196 120 232 200 178S310 100 410 112"
+          />
+
+          <path
+            d="M200 178C204 140 196 90 214 -10"
+          />
+
+          <path
+            d="M200 178C180 200 150 236 132 262"
+            stroke-dasharray="2 5"
+          />
+
+        </g>
+
+
+        <g
+          stroke="#80622a"
+          stroke-width=".6"
+          opacity=".2"
+        >
+
+          <path d="M0 50H400"/>
+          <path d="M0 100H400"/>
+          <path d="M0 150H400"/>
+          <path d="M0 200H400"/>
+
+          <path d="M50 0V250"/>
+          <path d="M100 0V250"/>
+          <path d="M150 0V250"/>
+          <path d="M200 0V250"/>
+          <path d="M250 0V250"/>
+          <path d="M300 0V250"/>
+          <path d="M350 0V250"/>
+
+        </g>
+
+
+        <g
+          transform="translate(340 46)"
+          fill="none"
+          stroke="#80622a"
+          stroke-width="1"
+          opacity=".8"
+        >
+
+          <circle r="18"/>
+          <circle r="14" opacity=".5"/>
+
+          <path
+            d="M0-24L4-4L0 0L-4-4ZM0 24L4 4L0 0L-4 4ZM-24 0L-4-4L0 0L-4 4ZM24 0L4-4L0 0L4 4Z"
+            fill="#80622a"
+            fill-opacity=".22"
+          />
+
+          <text
+            y="-28"
+            text-anchor="middle"
+            font-family="Cinzel,serif"
+            font-size="8"
+            fill="#80622a"
+            stroke="none"
+          >
+            N
+          </text>
+
+        </g>
+
+
+        <ellipse
+          class="pin-ring"
+          cx="200"
+          cy="178"
+          rx="26"
+          ry="9"
+          fill="none"
+          stroke="#651a2e"
+          stroke-width="1.2"
+        />
+
+
+        <ellipse
+          cx="200"
+          cy="178"
+          rx="9"
+          ry="3.2"
+          fill="#2e0714"
+          opacity=".28"
+        />
+
+
+        <path
+          d="M200 92C184 92 172 104 172 120C172 142 200 174 200 174C200 174 228 142 228 120C228 104 216 92 200 92Z"
+          fill="#4a0d1f"
+          stroke="#b8964f"
+          stroke-width="1.6"
+        />
+
+
+        <path
+          d="M200 106V134M190 116H210"
+          stroke="#dcc48a"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+
+      </svg>
+
+
+      <div class="mapcard__cap">
+
+        <p
+          class="v"
+          data-venue-inline
+        ></p>
+
+
+        <p
+          class="p"
+          data-t="place"
+        ></p>
+
+
+        <a
+          class="btn"
+          id="mapBtn"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.800 12 21 12 21Z"
+            />
+
+            <circle
+              cx="12"
+              cy="9.5"
+              r="2.5"
+            />
+
+          </svg>
+
+          Open in Maps
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     X — OUR NEXT CHAPTER
+     ========================================================================== -->
+
+<section
+  class="page page--deep"
+  id="closing"
+  data-edge
+  aria-labelledby="closing-h"
+>
+
+  <div data-frame></div>
+
+
+  <div class="page__in">
+
+    <svg
+      class="closing__swans draw rv"
+      aria-hidden="true"
+    >
+
+      <use href="#swans"/>
+
+    </svg>
+
+
+    <h2
+      class="h-caps letters"
+      id="closing-h"
+      data-split
+    >
+
+      And so, our next chapter begins...
+
+    </h2>
+
+
+    <p
+      class="closing__names rv"
+      style="--d:.2s"
+    >
+
+      George &amp; Reenu
+
+    </p>
+
+
+    <p
+      class="closing__date rv"
+      data-t="dots"
+    ></p>
+
+
+    <p class="closing__quote rv">
+
+      “With love in our hearts, laughter in our days,
+      and a lifetime waiting to be written.”
+
+    </p>
+
+
+    <svg
+      class="crest closing__crest rv"
+      role="img"
+      aria-label="G and R wedding crest"
+    >
+
+      <use href="#crest"/>
+
+    </svg>
+
+
+    <p class="closing__thanks rv">
+
+      Thank you for being part of our story.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+
+<footer class="foot">
+
+  <svg
+    class="crest"
+    aria-hidden="true"
+  >
+
+    <use href="#crest"/>
+
+  </svg>
+
+
+  <p>
+    George &amp; Reenu
+  </p>
+
+
+  <p
+    data-t="dateUpper"
+  ></p>
+
+</footer>
 
 </main>
 
@@ -5284,8 +5188,7 @@ const CONFIG = {
 
     parentLabel:'Son of',
 
-    parents:
-      'Saju George & Anni Saju',
+    parents:'Saju George & Anni Saju',
 
     siblingLine:
       'My brothers, who have shared my laughter, stood by my side, and helped shape the man I am today.',
@@ -5308,12 +5211,10 @@ const CONFIG = {
 
     parentLabel:'Daughter of',
 
-    parents:
-      'Thomas George & Jain Thomas',
+    parents:'Thomas George & Jain Thomas',
 
     siblingLine:
-      'My sisters and their husbands, cherished companions through the years, have shared our joys, stood beside us through every season, and now join us in celebrating the beginning of our new chapter together.
-',
+      'My sisters and their husbands, cherished companions through the years, have shared our joys, stood beside us through every season, and now join us in celebrating the beginning of our new chapter together.',
 
     siblings:[
       'Anu & Sibin',
@@ -5368,13 +5269,13 @@ const reduce =
 
 
 const $ =
-  (s,r=document) =>
-    r.querySelector(s);
+  (selector,root=document) =>
+    root.querySelector(selector);
 
 
 const $$ =
-  (s,r=document) =>
-    [...r.querySelectorAll(s)];
+  (selector,root=document) =>
+    [...root.querySelectorAll(selector)];
 
 
 /* ==========================================================================
@@ -5388,14 +5289,14 @@ const startDate =
 
 
 const fmt =
-  o =>
+  options =>
     new Intl.DateTimeFormat(
       'en-GB',
       {
         timeZone:
           CONFIG.event.timeZone,
 
-        ...o
+        ...options
       }
     ).format(
       startDate
@@ -5456,8 +5357,8 @@ V.dateUpper =
 
 V.dots =
   `${V.day} • ${fmt({
-      month:'2-digit'
-    })} • ${V.year}`;
+    month:'2-digit'
+  })} • ${V.year}`;
 
 
 /* ==========================================================================
@@ -5470,20 +5371,22 @@ const toast =
     const el =
       $('#toast');
 
-    let t;
+    let timer;
 
-    return msg => {
+    return message => {
 
       el.textContent =
-        msg;
+        message;
 
       el.classList.add(
         'show'
       );
 
-      clearTimeout(t);
+      clearTimeout(
+        timer
+      );
 
-      t =
+      timer =
         setTimeout(
           () =>
             el.classList.remove(
@@ -5503,11 +5406,11 @@ const toast =
 
 $$('[data-t]')
   .forEach(
-    el => {
+    element => {
 
-      el.textContent =
+      element.textContent =
         V[
-          el.dataset.t
+          element.dataset.t
         ] ?? '';
 
     }
@@ -5520,9 +5423,9 @@ $$('[data-t]')
 
 $$('[data-venue]')
   .forEach(
-    el => {
+    element => {
 
-      el.innerHTML =
+      element.innerHTML =
         CONFIG.event.venueLines
           .map(
             line =>
@@ -5536,9 +5439,9 @@ $$('[data-venue]')
 
 $$('[data-venue-inline]')
   .forEach(
-    el => {
+    element => {
 
-      el.textContent =
+      element.textContent =
         venue;
 
     }
@@ -5551,23 +5454,24 @@ $$('[data-venue-inline]')
 
 $$('[data-frame]')
   .forEach(
-    el => {
+    element => {
 
-      const sm =
-        el.dataset.frame === 'sm';
+      const small =
+        element.dataset.frame === 'sm';
 
-      el.outerHTML =
+
+      element.outerHTML =
         `
         <div
-          class="frame${sm ? ' frame--sm' : ''}"
+          class="frame${small ? ' frame--sm' : ''}"
           aria-hidden="true"
         >
 
           ${[1,2,3,4]
             .map(
-              n =>
+              number =>
                 `
-                <svg class="c c${n}">
+                <svg class="c c${number}">
                   <use href="#corner"/>
                 </svg>
                 `
@@ -5589,26 +5493,32 @@ $$('[data-frame]')
 
   let seed = 3;
 
+
   $$('.page[data-edge]')
     .forEach(
-      sec => {
+      section => {
 
         seed += 2.3;
 
-        let s =
+
+        let randomSeed =
           Math.floor(
             seed * 1000
           );
 
-        let d =
+
+        let path =
           'M0 22L0 10';
 
 
-        const rnd =
+        const random =
           () =>
             (
-              s =
-                (s * 16807) %
+              randomSeed =
+                (
+                  randomSeed *
+                  16807
+                ) %
                 2147483647
             ) /
             2147483647;
@@ -5628,19 +5538,21 @@ $$('[data-frame]')
             Math.sin(
               x / 17 + seed * 2
             ) * 1.5 +
-            rnd() * 2.6;
+            random() * 2.6;
 
-          d +=
+
+          path +=
             `L${x} ${y.toFixed(1)}`;
 
         }
 
 
-        d +=
+        path +=
           'L1000 22Z';
 
 
-        sec.insertAdjacentHTML(
+        section.insertAdjacentHTML(
+
           'afterbegin',
 
           `
@@ -5652,7 +5564,7 @@ $$('[data-frame]')
           >
 
             <path
-              d="${d}"
+              d="${path}"
               fill="currentColor"
             />
 
@@ -5679,16 +5591,17 @@ $('#panels').innerHTML =
   ]
 
   .map(
-    ([key,p],i) =>
+    ([key,person],index) =>
 
       `
       <article
         class="panel panel--${key} rv"
-        style="--d:${i * .2}s"
+        style="--d:${index * .2}s"
         aria-labelledby="${key}-name"
       >
 
         <div data-frame="sm"></div>
+
 
         <svg
           class="panel__swan"
@@ -5701,7 +5614,7 @@ $('#panels').innerHTML =
 
 
         <p class="label">
-          ${p.title}
+          ${person.title}
         </p>
 
 
@@ -5710,7 +5623,7 @@ $('#panels').innerHTML =
           id="${key}-name"
         >
 
-          ${p.name}
+          ${person.name}
 
         </h3>
 
@@ -5721,7 +5634,7 @@ $('#panels').innerHTML =
             House
           </span>
 
-          ${p.house}
+          ${person.house}
 
         </p>
 
@@ -5737,23 +5650,27 @@ $('#panels').innerHTML =
 
 
         <p class="label">
-          ${p.parentLabel}
+          ${person.parentLabel}
         </p>
 
 
         <p class="panel__parents">
-          ${p.parents}
+
+          ${person.parents}
+
         </p>
 
 
         <p class="panel__poem">
-          ${p.siblingLine}
+
+          ${person.siblingLine}
+
         </p>
 
 
         <ul class="panel__sibs">
 
-          ${p.siblings
+          ${person.siblings
             .map(
               name =>
                 `<li>${name}</li>`
@@ -5770,9 +5687,9 @@ $('#panels').innerHTML =
 
 $$('#panels [data-frame]')
   .forEach(
-    el => {
+    element => {
 
-      el.outerHTML =
+      element.outerHTML =
         `
         <div
           class="frame frame--sm"
@@ -5781,9 +5698,9 @@ $$('#panels [data-frame]')
 
           ${[1,2,3,4]
             .map(
-              n =>
+              number =>
                 `
-                <svg class="c c${n}">
+                <svg class="c c${number}">
                   <use href="#corner"/>
                 </svg>
                 `
@@ -5799,43 +5716,45 @@ $$('#panels [data-frame]')
 
 /* ==========================================================================
    TEXT SPLITTING
+   FIXED: DATA-T VALUES ARE USED FOR NAME REVEALS
    ========================================================================== */
 
 $$('[data-split]')
   .forEach(
-    el => {
-
-      /*
-       * Important fix:
-       * Elements like the groom/bride name spans use data-t rather than
-       * visible text. We now use the bound data-t value when textContent
-       * is empty.
-       */
+    element => {
 
       const text =
         (
-          el.textContent.trim() ||
+          element.textContent.trim() ||
           (
-            el.dataset.t
-              ? V[el.dataset.t] || ''
+            element.dataset.t
+              ? V[
+                  element.dataset.t
+                ] || ''
               : ''
           )
         ).trim();
 
 
-      if (!el.getAttribute('aria-hidden')){
-        el.setAttribute(
+      if (
+        !element.getAttribute(
+          'aria-hidden'
+        )
+      ){
+
+        element.setAttribute(
           'aria-label',
           text
         );
+
       }
 
 
-      el.textContent =
+      element.textContent =
         '';
 
 
-      let i = 0;
+      let letterIndex = 0;
 
 
       text
@@ -5844,7 +5763,7 @@ $$('[data-split]')
           (
             wordText,
             wordIndex,
-            array
+            words
           ) => {
 
             const word =
@@ -5863,51 +5782,49 @@ $$('[data-split]')
             );
 
 
-            [
-              ...wordText
-            ]
-            .forEach(
-              character => {
+            [...wordText]
+              .forEach(
+                character => {
 
-                const span =
-                  document.createElement(
-                    'span'
+                  const letter =
+                    document.createElement(
+                      'span'
+                    );
+
+
+                  letter.className =
+                    'ltr';
+
+
+                  letter.style.setProperty(
+                    '--i',
+                    letterIndex++
                   );
 
 
-                span.className =
-                  'ltr';
+                  letter.textContent =
+                    character;
 
 
-                span.style.setProperty(
-                  '--i',
-                  i++
-                );
+                  word.appendChild(
+                    letter
+                  );
+
+                }
+              );
 
 
-                span.textContent =
-                  character;
-
-
-                word.appendChild(
-                  span
-                );
-
-              }
-            );
-
-
-            el.appendChild(
+            element.appendChild(
               word
             );
 
 
             if (
               wordIndex <
-              array.length - 1
+              words.length - 1
             ){
 
-              el.appendChild(
+              element.appendChild(
                 document.createTextNode(
                   ' '
                 )
@@ -5920,12 +5837,12 @@ $$('[data-split]')
 
 
       if (
-        !el.classList.contains(
+        !element.classList.contains(
           'letters'
         )
       ){
 
-        el.parentElement.classList.add(
+        element.parentElement.classList.add(
           'letters'
         );
 
@@ -5995,36 +5912,37 @@ $$(
 
 
 /* ==========================================================================
-   GOLD DUST
+   GOLD DUST + SPARKS
    ========================================================================== */
 
 const Dust =
   (() => {
 
-    const cv =
+    const canvas =
       $('#dust');
 
-    const ctx =
-      cv.getContext(
+
+    const context =
+      canvas.getContext(
         '2d'
       );
 
 
-    let W = 0;
-    let H = 0;
+    let width = 0;
+    let height = 0;
     let dpr = 1;
 
     let motes = [];
     let sparks = [];
 
-    let raf = 0;
+    let animationFrame = 0;
 
 
     const rand =
-      (a,b) =>
-        a +
+      (min,max) =>
+        min +
         Math.random() *
-        (b-a);
+        (max-min);
 
 
     const spawn =
@@ -6033,16 +5951,16 @@ const Dust =
         x:
           rand(
             0,
-            W
+            width
           ),
 
         y:
           anywhere
             ? rand(
                 0,
-                H
+                height
               )
-            : H + 10,
+            : height + 10,
 
         r:
           rand(
@@ -6086,21 +6004,23 @@ const Dust =
         );
 
 
-      W =
+      width =
         innerWidth;
 
-      H =
+
+      height =
         innerHeight;
 
 
-      cv.width =
-        W * dpr;
-
-      cv.height =
-        H * dpr;
+      canvas.width =
+        width * dpr;
 
 
-      ctx.setTransform(
+      canvas.height =
+        height * dpr;
+
+
+      context.setTransform(
         dpr,
         0,
         0,
@@ -6111,7 +6031,7 @@ const Dust =
 
 
       const count =
-        W < 700
+        width < 700
           ? 22
           : 38;
 
@@ -6128,37 +6048,37 @@ const Dust =
     }
 
 
-    function frame(t){
+    function frame(time){
 
-      ctx.clearRect(
+      context.clearRect(
         0,
         0,
-        W,
-        H
+        width,
+        height
       );
 
 
       for (
-        const m of motes
+        const mote of motes
       ){
 
-        m.y -= m.vy;
+        mote.y -= mote.vy;
 
-        m.ph += m.sp;
+        mote.ph +=
+          mote.sp;
 
-        m.x +=
+        mote.x +=
           Math.sin(
-            m.ph * 3
-          ) *
-          .18;
+            mote.ph * 3
+          ) * .18;
 
 
         if (
-          m.y < -10
+          mote.y < -10
         ){
 
           Object.assign(
-            m,
+            mote,
             spawn(false)
           );
 
@@ -6166,77 +6086,71 @@ const Dust =
 
 
         const alpha =
-          m.a *
+          mote.a *
           (
             .55 +
             .45 *
             Math.sin(
-              t / 900 +
-              m.ph * 5
+              time / 900 +
+              mote.ph * 5
             )
           );
 
 
-        ctx.beginPath();
+        context.beginPath();
 
 
-        ctx.arc(
-          m.x,
-          m.y,
-          m.r,
+        context.arc(
+          mote.x,
+          mote.y,
+          mote.r,
           0,
           6.283
         );
 
 
-        ctx.fillStyle =
+        context.fillStyle =
           `rgba(228,198,132,${alpha})`;
 
 
-        ctx.shadowColor =
+        context.shadowColor =
           'rgba(240,205,130,.8)';
 
 
-        ctx.shadowBlur =
+        context.shadowBlur =
           6;
 
 
-        ctx.fill();
+        context.fill();
 
       }
 
 
-      ctx.shadowBlur =
+      context.shadowBlur =
         0;
 
 
       for (
-        let i = sparks.length - 1;
-        i >= 0;
-        i--
+        let index = sparks.length - 1;
+        index >= 0;
+        index--
       ){
 
         const spark =
-          sparks[i];
+          sparks[index];
 
 
-        spark.vy +=
-          .085;
+        spark.vy += .085;
 
-        spark.vx *=
-          .988;
+        spark.vx *= .988;
 
-        spark.x +=
-          spark.vx;
+        spark.x += spark.vx;
 
-        spark.y +=
-          spark.vy;
+        spark.y += spark.vy;
 
-        spark.rot +=
-          spark.vr;
+        spark.rot += spark.vr;
 
-        spark.life -=
-          spark.decay;
+        spark.life -= spark.decay;
 
 
         if (
@@ -6244,7 +6158,7 @@ const Dust =
         ){
 
           sparks.splice(
-            i,
+            index,
             1
           );
 
@@ -6253,73 +6167,66 @@ const Dust =
         }
 
 
-        ctx.save();
+        context.save();
 
 
-        ctx.translate(
+        context.translate(
           spark.x,
           spark.y
         );
 
 
-        ctx.rotate(
+        context.rotate(
           spark.rot
         );
 
 
-        ctx.globalAlpha =
+        context.globalAlpha =
           Math.min(
             1,
             spark.life * 1.4
           );
 
 
-        ctx.fillStyle =
-          spark.c;
+        context.fillStyle =
+          spark.color;
 
 
         if (
           spark.shape
         ){
 
-          ctx.beginPath();
+          context.beginPath();
 
-
-          ctx.moveTo(
+          context.moveTo(
             0,
             -spark.size
           );
 
-
-          ctx.lineTo(
+          context.lineTo(
             spark.size * .6,
             0
           );
 
-
-          ctx.lineTo(
+          context.lineTo(
             0,
             spark.size
           );
 
-
-          ctx.lineTo(
+          context.lineTo(
             -spark.size * .6,
             0
           );
 
+          context.closePath();
 
-          ctx.closePath();
-
-
-          ctx.fill();
+          context.fill();
 
         }else{
 
-          ctx.beginPath();
+          context.beginPath();
 
-
-          ctx.ellipse(
+          context.ellipse(
             0,
             0,
             spark.size,
@@ -6329,18 +6236,17 @@ const Dust =
             6.283
           );
 
-
-          ctx.fill();
+          context.fill();
 
         }
 
 
-        ctx.restore();
+        context.restore();
 
       }
 
 
-      raf =
+      animationFrame =
         requestAnimationFrame(
           frame
         );
@@ -6354,10 +6260,11 @@ const Dust =
 
         if (
           reduce ||
-          raf
+          animationFrame
         ){
 
           return;
+
         }
 
 
@@ -6370,7 +6277,7 @@ const Dust =
         );
 
 
-        raf =
+        animationFrame =
           requestAnimationFrame(
             frame
           );
@@ -6385,23 +6292,25 @@ const Dust =
         }
 
 
-        if (!raf){
+        if (!animationFrame){
           this.start();
         }
 
 
         const colors = [
+
           '#e2c482',
           '#f3e6c0',
           '#c9a24f',
           '#f7f0e1',
           '#a83a4e'
+
         ];
 
 
         for (
-          let i = 0;
-          i < 90;
+          let i=0;
+          i<90;
           i++
         ){
 
@@ -6427,14 +6336,12 @@ const Dust =
             vx:
               Math.cos(
                 angle
-              ) *
-              speed,
+              ) * speed,
 
             vy:
               Math.sin(
                 angle
-              ) *
-              speed,
+              ) * speed,
 
             life:1,
 
@@ -6450,7 +6357,7 @@ const Dust =
                 5
               ),
 
-            c:
+            color:
               colors[
                 i %
                 colors.length
@@ -6509,11 +6416,15 @@ const Music =
         440 *
         Math.pow(
           2,
-          (midi - 69) / 12
+          (
+            midi -
+            69
+          ) /
+          12
         );
 
 
-    let ctx;
+    let context;
     let master;
     let bus;
     let timer;
@@ -6533,18 +6444,20 @@ const Music =
 
 
       if (!AudioContextClass){
+
         throw new Error(
           'no audio'
         );
+
       }
 
 
-      ctx =
+      context =
         new AudioContextClass();
 
 
       master =
-        ctx.createGain();
+        context.createGain();
 
 
       master.gain.value =
@@ -6552,29 +6465,29 @@ const Music =
 
 
       const compressor =
-        ctx.createDynamicsCompressor();
+        context.createDynamicsCompressor();
 
 
       const convolver =
-        ctx.createConvolver();
+        context.createConvolver();
 
 
       const length =
-        ctx.sampleRate *
+        context.sampleRate *
         4.8;
 
 
       const buffer =
-        ctx.createBuffer(
+        context.createBuffer(
           2,
           length,
-          ctx.sampleRate
+          context.sampleRate
         );
 
 
       for (
-        let channel = 0;
-        channel < 2;
+        let channel=0;
+        channel<2;
         channel++
       ){
 
@@ -6585,17 +6498,20 @@ const Music =
 
 
         for (
-          let i = 0;
-          i < length;
+          let i=0;
+          i<length;
           i++
         ){
 
           data[i] =
             (
-              Math.random() * 2 - 1
+              Math.random() *
+              2 -
+              1
             ) *
             Math.pow(
-              1 - i / length,
+              1 -
+              i / length,
               2.7
             );
 
@@ -6609,51 +6525,61 @@ const Music =
 
 
       bus =
-        ctx.createGain();
+        context.createGain();
 
 
       const dry =
-        ctx.createGain();
+        context.createGain();
+
 
       dry.gain.value =
         .65;
 
 
       const wet =
-        ctx.createGain();
+        context.createGain();
+
 
       wet.gain.value =
         .6;
 
 
       bus
-        .connect(dry)
-        .connect(master);
+        .connect(
+          dry
+        )
+        .connect(
+          master
+        );
 
 
       bus
-        .connect(convolver);
+        .connect(
+          convolver
+        );
 
 
       convolver
-        .connect(wet)
-        .connect(master);
+        .connect(
+          wet
+        )
+        .connect(
+          master
+        );
 
 
       master
-        .connect(compressor)
         .connect(
-          ctx.destination
+          compressor
+        )
+        .connect(
+          context.destination
         );
 
     }
 
 
-    function pad(
-      notes,
-      t,
-      duration
-    ){
+    function pad(notes,time,duration){
 
       notes.forEach(
         midi => {
@@ -6662,13 +6588,15 @@ const Music =
             detune => {
 
               const oscillator =
-                ctx.createOscillator();
+                context.createOscillator();
+
 
               const filter =
-                ctx.createBiquadFilter();
+                context.createBiquadFilter();
+
 
               const gain =
-                ctx.createGain();
+                context.createGain();
 
 
               oscillator.type =
@@ -6676,7 +6604,9 @@ const Music =
 
 
               oscillator.frequency.value =
-                hz(midi);
+                hz(
+                  midi
+                );
 
 
               oscillator.detune.value =
@@ -6705,39 +6635,49 @@ const Music =
 
               gain.gain.setValueAtTime(
                 0,
-                t
+                time
               );
 
 
               gain.gain.linearRampToValueAtTime(
                 volume,
-                t + 1.7
+                time + 1.7
               );
 
 
               gain.gain.setValueAtTime(
                 volume,
-                t + duration - .3
+                time + duration - .3
               );
 
 
               gain.gain.linearRampToValueAtTime(
                 0,
-                t + duration + 2.4
+                time + duration + 2.4
               );
 
 
               oscillator
-                .connect(filter)
-                .connect(gain)
-                .connect(bus);
+                .connect(
+                  filter
+                )
+                .connect(
+                  gain
+                )
+                .connect(
+                  bus
+                );
 
 
-              oscillator.start(t);
+              oscillator.start(
+                time
+              );
 
 
               oscillator.stop(
-                t + duration + 2.6
+                time +
+                duration +
+                2.6
               );
 
             }
@@ -6749,16 +6689,14 @@ const Music =
     }
 
 
-    function pluck(
-      midi,
-      t
-    ){
+    function pluck(midi,time){
 
       const oscillator =
-        ctx.createOscillator();
+        context.createOscillator();
+
 
       const gain =
-        ctx.createGain();
+        context.createGain();
 
 
       oscillator.type =
@@ -6766,37 +6704,45 @@ const Music =
 
 
       oscillator.frequency.value =
-        hz(midi);
+        hz(
+          midi
+        );
 
 
       gain.gain.setValueAtTime(
         0,
-        t
+        time
       );
 
 
       gain.gain.linearRampToValueAtTime(
         .075,
-        t + .012
+        time + .012
       );
 
 
       gain.gain.exponentialRampToValueAtTime(
         .0001,
-        t + 2.4
+        time + 2.4
       );
 
 
       oscillator
-        .connect(gain)
-        .connect(bus);
+        .connect(
+          gain
+        )
+        .connect(
+          bus
+        );
 
 
-      oscillator.start(t);
+      oscillator.start(
+        time
+      );
 
 
       oscillator.stop(
-        t + 2.5
+        time + 2.5
       );
 
     }
@@ -6808,8 +6754,8 @@ const Music =
         4.4;
 
 
-      const t =
-        ctx.currentTime +
+      const time =
+        context.currentTime +
         .06;
 
 
@@ -6822,7 +6768,7 @@ const Music =
 
       pad(
         chord,
-        t,
+        time,
         duration
       );
 
@@ -6831,11 +6777,14 @@ const Music =
         1,2,3,4,3,2,3,4
       ]
       .forEach(
-        (noteIndex,i) => {
+        (
+          noteIndex,
+          index
+        ) => {
 
           pluck(
             chord[noteIndex] + 12,
-            t + .25 + i * .53
+            time + .25 + index * .53
           );
 
         }
@@ -6889,33 +6838,34 @@ const Music =
             playing =
               true;
 
+
             return true;
 
           }
 
 
-          if (!ctx){
+          if (!context){
             init();
           }
 
 
-          ctx.resume();
+          context.resume();
 
 
           master.gain.cancelScheduledValues(
-            ctx.currentTime
+            context.currentTime
           );
 
 
           master.gain.setValueAtTime(
             master.gain.value,
-            ctx.currentTime
+            context.currentTime
           );
 
 
           master.gain.linearRampToValueAtTime(
             .6,
-            ctx.currentTime + 3.5
+            context.currentTime + 3.5
           );
 
 
@@ -6954,7 +6904,7 @@ const Music =
         }
 
 
-        if (!ctx){
+        if (!context){
           return;
         }
 
@@ -6965,19 +6915,19 @@ const Music =
 
 
         master.gain.cancelScheduledValues(
-          ctx.currentTime
+          context.currentTime
         );
 
 
         master.gain.setValueAtTime(
           master.gain.value,
-          ctx.currentTime
+          context.currentTime
         );
 
 
         master.gain.linearRampToValueAtTime(
           0,
-          ctx.currentTime + 1.2
+          context.currentTime + 1.2
         );
 
 
@@ -6985,7 +6935,7 @@ const Music =
           () => {
 
             if (!playing){
-              ctx.suspend();
+              context.suspend();
             }
 
           },
@@ -6998,18 +6948,16 @@ const Music =
       hide(hidden){
 
         if (
-          !ctx ||
+          !context ||
           !playing
         ){
-
           return;
-
         }
 
 
         hidden
-          ? ctx.suspend()
-          : ctx.resume();
+          ? context.suspend()
+          : context.resume();
 
       }
 
@@ -7031,11 +6979,11 @@ document.addEventListener(
    MUSIC BUTTON
    ========================================================================== */
 
-const musicBtn =
+const musicButton =
   $('#music');
 
 
-musicBtn.addEventListener(
+musicButton.addEventListener(
   'click',
   () => {
 
@@ -7046,14 +6994,14 @@ musicBtn.addEventListener(
       Music.stop();
 
 
-      musicBtn.setAttribute(
+      musicButton.setAttribute(
         'aria-pressed',
         'false'
       );
 
     }else{
 
-      musicBtn.setAttribute(
+      musicButton.setAttribute(
         'aria-pressed',
         Music.start()
           ? 'true'
@@ -7097,7 +7045,7 @@ function openInvitation(){
     Music.start();
 
 
-  musicBtn.setAttribute(
+  musicButton.setAttribute(
     'aria-pressed',
     musicStarted
       ? 'true'
@@ -7105,7 +7053,7 @@ function openInvitation(){
   );
 
 
-  const T =
+  const timeline =
     reduce
       ? [0,60,120,200,320,520]
       : [0,700,1350,2050,3500,5600];
@@ -7121,7 +7069,7 @@ function openInvitation(){
       gate.classList.add(
         'is-flap'
       ),
-    T[1]
+    timeline[1]
   );
 
 
@@ -7130,7 +7078,7 @@ function openInvitation(){
       gate.classList.add(
         'is-flap-mid'
       ),
-    T[1] +
+    timeline[1] +
     (
       reduce
         ? 0
@@ -7144,7 +7092,7 @@ function openInvitation(){
       gate.classList.add(
         'is-card'
       ),
-    T[3]
+    timeline[3]
   );
 
 
@@ -7153,13 +7101,13 @@ function openInvitation(){
       gate.classList.add(
         'is-reveal'
       ),
-    T[4]
+    timeline[4]
   );
 
 
   setTimeout(
     finishOpening,
-    T[5]
+    timeline[5]
   );
 
 }
@@ -7197,7 +7145,7 @@ function finishOpening(){
   );
 
 
-  musicBtn.classList.add(
+  musicButton.classList.add(
     'show'
   );
 
@@ -7231,6 +7179,7 @@ function startReveals(){
 
   const observer =
     new IntersectionObserver(
+
       entries =>
         entries.forEach(
           entry => {
@@ -7252,12 +7201,14 @@ function startReveals(){
 
           }
         ),
+
       {
         threshold:.18,
 
         rootMargin:
           '0px 0px -6% 0px'
       }
+
     );
 
 
@@ -7277,7 +7228,7 @@ function startReveals(){
   }
 
 
-  const parallax =
+  const parallaxElements =
     $$(
       '[data-par]'
     );
@@ -7290,11 +7241,11 @@ function startReveals(){
   const update =
     () => {
 
-      const vh =
+      const viewportHeight =
         innerHeight;
 
 
-      parallax.forEach(
+      parallaxElements.forEach(
         element => {
 
           const rect =
@@ -7305,7 +7256,7 @@ function startReveals(){
             (
               rect.top +
               rect.height / 2 -
-              vh / 2
+              viewportHeight / 2
             );
 
 
@@ -7369,12 +7320,12 @@ function startReveals(){
     $('#scratch');
 
 
-  const cv =
+  const canvas =
     $('#scratchCv');
 
 
-  const ctx =
-    cv.getContext(
+  const context =
+    canvas.getContext(
       '2d',
       {
         willReadFrequently:true
@@ -7382,46 +7333,43 @@ function startReveals(){
     );
 
 
-  let w = 0;
-  let h = 0;
-
+  let width = 0;
+  let height = 0;
   let dpr = 1;
 
   let done = false;
-
   let drawing = false;
-
   let touched = false;
 
-  let last = null;
+  let lastPoint = null;
 
   let lastCheck = 0;
 
 
   function paintFoil(){
 
-    ctx.globalCompositeOperation =
+    context.globalCompositeOperation =
       'source-over';
 
 
-    ctx.fillStyle =
+    context.fillStyle =
       '#c9ae74';
 
 
-    ctx.fillRect(
+    context.fillRect(
       0,
       0,
-      w,
-      h
+      width,
+      height
     );
 
 
     const gradient =
-      ctx.createLinearGradient(
+      context.createLinearGradient(
         0,
         0,
-        w,
-        h
+        width,
+        height
       );
 
 
@@ -7443,23 +7391,23 @@ function startReveals(){
     );
 
 
-    ctx.fillStyle =
+    context.fillStyle =
       gradient;
 
 
-    ctx.fillRect(
+    context.fillRect(
       0,
       0,
-      w,
-      h
+      width,
+      height
     );
 
 
-    ctx.strokeStyle =
+    context.strokeStyle =
       'rgba(90,62,22,.16)';
 
 
-    ctx.lineWidth =
+    context.lineWidth =
       dpr;
 
 
@@ -7467,81 +7415,82 @@ function startReveals(){
       20 * dpr;
 
 
-    ctx.beginPath();
+    context.beginPath();
 
 
     for (
-      let x = -h;
-      x < w + h;
-      x += spacing
+      let x=-height;
+      x<width+height;
+      x+=spacing
     ){
 
-      ctx.moveTo(
+      context.moveTo(
         x,
         0
       );
 
 
-      ctx.lineTo(
-        x + h,
-        h
+      context.lineTo(
+        x + height,
+        height
       );
 
 
-      ctx.moveTo(
-        x + h,
+      context.moveTo(
+        x + height,
         0
       );
 
 
-      ctx.lineTo(
+      context.lineTo(
         x,
-        h
+        height
       );
 
     }
 
 
-    ctx.stroke();
+    context.stroke();
 
 
-    ctx.fillStyle =
+    context.fillStyle =
       'rgba(74,13,31,.2)';
 
 
-    ctx.font =
-      `italic 500 ${15 * dpr}px "Cormorant Garamond",Georgia,serif`;
+    context.font =
+      `italic 500 ${15*dpr}px "Cormorant Garamond",Georgia,serif`;
 
 
-    ctx.textAlign =
+    context.textAlign =
       'center';
 
 
-    ctx.textBaseline =
+    context.textBaseline =
       'middle';
 
 
     for (
-      let y = 26 * dpr,
-          row = 0;
-      y < h;
-      y += 40 * dpr,
+      let y=26*dpr,
+          row=0;
+      y<height;
+      y+=40*dpr,
       row++
     ){
 
       for (
-        let x =
+        let x=
           (
             row % 2
               ? 40
               : 0
-          ) * dpr;
+          ) *
+          dpr;
 
-        x < w + 80 * dpr;
-        x += 80 * dpr
+        x<width + 80*dpr;
+        x+=80*dpr
       ){
 
-        ctx.fillText(
+        context.fillText(
           'G & R',
           x,
           y
@@ -7553,20 +7502,20 @@ function startReveals(){
 
 
     for (
-      let i = 0;
-      i < w * h / 160;
+      let i=0;
+      i<width*height/160;
       i++
     ){
 
-      ctx.fillStyle =
+      context.fillStyle =
         Math.random() < .5
-          ? `rgba(255,255,255,${Math.random() * .18})`
-          : `rgba(70,50,20,${Math.random() * .18})`;
+          ? `rgba(255,255,255,${Math.random()*.18})`
+          : `rgba(70,50,20,${Math.random()*.18})`;
 
 
-      ctx.fillRect(
-        Math.random() * w,
-        Math.random() * h,
+      context.fillRect(
+        Math.random()*width,
+        Math.random()*height,
         dpr,
         dpr
       );
@@ -7574,68 +7523,72 @@ function startReveals(){
     }
 
 
-    ctx.strokeStyle =
+    context.strokeStyle =
       'rgba(74,13,31,.55)';
 
 
-    ctx.lineWidth =
-      1.5 * dpr;
+    context.lineWidth =
+      1.5*dpr;
 
 
-    ctx.strokeRect(
-      9 * dpr,
-      9 * dpr,
-      w - 18 * dpr,
-      h - 18 * dpr
+    context.strokeRect(
+      9*dpr,
+      9*dpr,
+      width - 18*dpr,
+      height - 18*dpr
     );
 
 
-    ctx.strokeStyle =
+    context.strokeStyle =
       'rgba(74,13,31,.3)';
 
 
-    ctx.lineWidth =
+    context.lineWidth =
       dpr;
 
 
-    ctx.strokeRect(
-      14 * dpr,
-      14 * dpr,
-      w - 28 * dpr,
-      h - 28 * dpr
+    context.strokeRect(
+      14*dpr,
+      14*dpr,
+      width - 28*dpr,
+      height - 28*dpr
     );
 
 
-    ctx.fillStyle =
+    context.fillStyle =
       'rgba(58,18,26,.82)';
 
 
-    ctx.font =
-      `500 ${12.5 * dpr}px Cinzel,Georgia,serif`;
+    context.font =
+      `500 ${12.5*dpr}px Cinzel,Georgia,serif`;
 
 
     if (
-      'letterSpacing' in ctx
+      'letterSpacing'
+      in
+      context
     ){
 
-      ctx.letterSpacing =
-        `${3.4 * dpr}px`;
+      context.letterSpacing =
+        `${3.4*dpr}px`;
 
     }
 
 
-    ctx.fillText(
+    context.fillText(
       'SCRATCH HERE',
-      w / 2,
-      h / 2
+      width/2,
+      height/2
     );
 
 
     if (
-      'letterSpacing' in ctx
+      'letterSpacing'
+      in
+      context
     ){
 
-      ctx.letterSpacing =
+      context.letterSpacing =
         '0px';
 
     }
@@ -7646,7 +7599,7 @@ function startReveals(){
   function size(){
 
     const rect =
-      cv.getBoundingClientRect();
+      canvas.getBoundingClientRect();
 
 
     if (
@@ -7654,9 +7607,7 @@ function startReveals(){
       touched ||
       done
     ){
-
       return;
-
     }
 
 
@@ -7669,42 +7620,38 @@ function startReveals(){
 
     const newWidth =
       Math.round(
-        rect.width *
-        dpr
+        rect.width * dpr
       );
 
 
     const newHeight =
       Math.round(
-        rect.height *
-        dpr
+        rect.height * dpr
       );
 
 
     if (
-      newWidth === w &&
-      newHeight === h
+      newWidth === width &&
+      newHeight === height
     ){
-
       return;
-
     }
 
 
-    w =
+    width =
       newWidth;
 
 
-    h =
+    height =
       newHeight;
 
 
-    cv.width =
-      w;
+    canvas.width =
+      width;
 
 
-    cv.height =
-      h;
+    canvas.height =
+      height;
 
 
     paintFoil();
@@ -7712,11 +7659,11 @@ function startReveals(){
   }
 
 
-  const pointerPosition =
+  const getPosition =
     event => {
 
       const rect =
-        cv.getBoundingClientRect();
+        canvas.getBoundingClientRect();
 
 
       return [
@@ -7726,7 +7673,7 @@ function startReveals(){
           rect.left
         ) *
         (
-          w /
+          width /
           rect.width
         ),
 
@@ -7735,7 +7682,7 @@ function startReveals(){
           rect.top
         ) *
         (
-          h /
+          height /
           rect.height
         )
 
@@ -7745,42 +7692,42 @@ function startReveals(){
 
 
   function segment(
-    a,
-    b
+    start,
+    end
   ){
 
-    ctx.globalCompositeOperation =
+    context.globalCompositeOperation =
       'destination-out';
 
 
-    ctx.lineWidth =
-      32 * dpr;
+    context.lineWidth =
+      32*dpr;
 
 
-    ctx.lineCap =
+    context.lineCap =
       'round';
 
 
-    ctx.lineJoin =
+    context.lineJoin =
       'round';
 
 
-    ctx.beginPath();
+    context.beginPath();
 
 
-    ctx.moveTo(
-      a[0],
-      a[1]
+    context.moveTo(
+      start[0],
+      start[1]
     );
 
 
-    ctx.lineTo(
-      b[0],
-      b[1]
+    context.lineTo(
+      end[0],
+      end[1]
     );
 
 
-    ctx.stroke();
+    context.stroke();
 
   }
 
@@ -7788,11 +7735,11 @@ function startReveals(){
   function cleared(){
 
     const data =
-      ctx.getImageData(
+      context.getImageData(
         0,
         0,
-        w,
-        h
+        width,
+        height
       ).data;
 
 
@@ -7801,16 +7748,16 @@ function startReveals(){
 
 
     for (
-      let i = 3;
-      i < data.length;
-      i += 4 * 11
+      let index=3;
+      index<data.length;
+      index+=44
     ){
 
       samples++;
 
 
       if (
-        data[i] < 40
+        data[index] < 40
       ){
 
         clearedPixels++;
@@ -7844,11 +7791,11 @@ function startReveals(){
     );
 
 
-    cv.tabIndex =
+    canvas.tabIndex =
       -1;
 
 
-    cv.setAttribute(
+    canvas.setAttribute(
       'aria-hidden',
       'true'
     );
@@ -7876,7 +7823,6 @@ function startReveals(){
         Dust.burst(
           rect.left +
           rect.width * .3,
-
           rect.top +
           rect.height * .6
         ),
@@ -7889,7 +7835,6 @@ function startReveals(){
         Dust.burst(
           rect.left +
           rect.width * .7,
-
           rect.top +
           rect.height * .6
         ),
@@ -7911,9 +7856,7 @@ function startReveals(){
       !force &&
       now - lastCheck < 160
     ){
-
       return;
-
     }
 
 
@@ -7932,7 +7875,7 @@ function startReveals(){
   }
 
 
-  cv.addEventListener(
+  canvas.addEventListener(
     'pointerdown',
     event => {
 
@@ -7944,7 +7887,7 @@ function startReveals(){
       size();
 
 
-      cv.setPointerCapture(
+      canvas.setPointerCapture(
         event.pointerId
       );
 
@@ -7962,17 +7905,17 @@ function startReveals(){
       );
 
 
-      last =
-        pointerPosition(
+      lastPoint =
+        getPosition(
           event
         );
 
 
       segment(
-        last,
+        lastPoint,
         [
-          last[0] + .1,
-          last[1] + .1
+          lastPoint[0] + .1,
+          lastPoint[1] + .1
         ]
       );
 
@@ -7983,7 +7926,7 @@ function startReveals(){
   );
 
 
-  cv.addEventListener(
+  canvas.addEventListener(
     'pointermove',
     event => {
 
@@ -7991,26 +7934,24 @@ function startReveals(){
         !drawing ||
         done
       ){
-
         return;
-
       }
 
 
-      const current =
-        pointerPosition(
+      const point =
+        getPosition(
           event
         );
 
 
       segment(
-        last,
-        current
+        lastPoint,
+        point
       );
 
 
-      last =
-        current;
+      lastPoint =
+        point;
 
 
       check(false);
@@ -8019,7 +7960,7 @@ function startReveals(){
   );
 
 
-  const end =
+  const endDrawing =
     () => {
 
       if (drawing){
@@ -8029,7 +7970,9 @@ function startReveals(){
 
 
         if (!done){
+
           check(true);
+
         }
 
       }
@@ -8037,19 +7980,19 @@ function startReveals(){
     };
 
 
-  cv.addEventListener(
+  canvas.addEventListener(
     'pointerup',
-    end
+    endDrawing
   );
 
 
-  cv.addEventListener(
+  canvas.addEventListener(
     'pointercancel',
-    end
+    endDrawing
   );
 
 
-  cv.addEventListener(
+  canvas.addEventListener(
     'keydown',
     event => {
 
@@ -8088,7 +8031,7 @@ function startReveals(){
 
       size();
 
-      if (w){
+      if (width){
         paintFoil();
       }
 
@@ -8107,25 +8050,31 @@ function startReveals(){
 
 (() => {
 
-  const dayEl =
+  const days =
     $('#cdD');
 
-  const hourEl =
+
+  const hours =
     $('#cdH');
 
-  const minuteEl =
+
+  const minutes =
     $('#cdM');
 
-  const secondEl =
+
+  const seconds =
     $('#cdS');
+
 
   const wrapper =
     $('#cd');
 
-  const doneEl =
+
+  const doneMessage =
     $('#cdDone');
 
-  const textEl =
+
+  const screenReaderText =
     $('#cdText');
 
 
@@ -8138,7 +8087,7 @@ function startReveals(){
         );
 
 
-  textEl.textContent =
+  screenReaderText.textContent =
     `Counting down to ${V.dateLong}, ${V.time}.`;
 
 
@@ -8160,11 +8109,11 @@ function startReveals(){
         true;
 
 
-      doneEl.hidden =
+      doneMessage.hidden =
         false;
 
 
-      textEl.textContent =
+      screenReaderText.textContent =
         'Today, two hearts become one.';
 
 
@@ -8185,7 +8134,7 @@ function startReveals(){
       );
 
 
-    dayEl.textContent =
+    days.textContent =
       pad(
         Math.floor(
           totalSeconds /
@@ -8194,7 +8143,7 @@ function startReveals(){
       );
 
 
-    hourEl.textContent =
+    hours.textContent =
       pad(
         Math.floor(
           (
@@ -8206,7 +8155,7 @@ function startReveals(){
       );
 
 
-    minuteEl.textContent =
+    minutes.textContent =
       pad(
         Math.floor(
           (
@@ -8218,7 +8167,7 @@ function startReveals(){
       );
 
 
-    secondEl.textContent =
+    seconds.textContent =
       pad(
         totalSeconds %
         60
@@ -8279,7 +8228,7 @@ function startReveals(){
     encodeURIComponent;
 
 
-  const wall =
+  const wallTime =
     date => {
 
       const parts =
@@ -8294,28 +8243,24 @@ function startReveals(){
               hourCycle:
                 'h23',
 
-              year:
-                'numeric',
+              year:'numeric',
 
-              month:
-                '2-digit',
+              month:'2-digit',
 
-              day:
-                '2-digit',
+              day:'2-digit',
 
-              hour:
-                '2-digit',
+              hour:'2-digit',
 
-              minute:
-                '2-digit',
+              minute:'2-digit',
 
-              second:
-                '2-digit'
+              second:'2-digit'
             }
           )
+
           .formatToParts(
             date
           )
+
           .map(
             part =>
               [
@@ -8340,23 +8285,38 @@ function startReveals(){
 
 
   $('#calGoogle').href =
+
     `https://calendar.google.com/calendar/render` +
+
     `?action=TEMPLATE` +
+
     `&text=${encode(event.title)}` +
-    `&dates=${wall(startDate)}/${wall(endDate)}` +
+
+    `&dates=${wallTime(startDate)}/${wallTime(endDate)}` +
+
     `&ctz=${encode(event.timeZone)}` +
+
     `&details=${encode(details)}` +
+
     `&location=${encode(location)}`;
 
 
   $('#calOutlook').href =
+
     `https://outlook.live.com/calendar/0/deeplink/compose` +
+
     `?path=%2Fcalendar%2Faction%2Fcompose` +
+
     `&rru=addevent` +
+
     `&subject=${encode(event.title)}` +
+
     `&startdt=${encode(startDate.toISOString())}` +
+
     `&enddt=${encode(endDate.toISOString())}` +
+
     `&location=${encode(location)}` +
+
     `&body=${encode(details)}`;
 
 
@@ -8524,10 +8484,10 @@ function startReveals(){
 
   document.addEventListener(
     'click',
-    eventClick => {
+    clickEvent => {
 
       if (
-        !eventClick.target.closest(
+        !clickEvent.target.closest(
           '.cal'
         )
       ){
@@ -8589,7 +8549,9 @@ function startReveals(){
 
 
   $('#mapBtn').href =
+
     CONFIG.mapUrl ||
+
     (
       `https://www.google.com/maps/search/?api=1&query=` +
       encode(location)
