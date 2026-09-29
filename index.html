@@ -3982,28 +3982,6 @@ body::after{
     </p>
 
 
-    <div
-      class="when rv"
-      style="--d:2.1s"
-    >
-
-      <p class="label">
-        Our Wedding Ceremony
-      </p>
-
-
-      <p
-        class="when__date"
-        data-t="dateUpper"
-      ></p>
-
-
-      <p
-        class="when__time"
-        data-t="time"
-      ></p>
-
-    </div>
 
 
     <a
@@ -6396,17 +6374,21 @@ const Dust =
 const Music =
   (() => {
 
+    /*
+     * Romantic Christian / wedding-hymn inspired progression.
+     * C major gives the music a warm, hopeful and devotional character.
+     */
     const CHORDS = [
 
-      [38,50,57,62,66],
-      [33,45,57,61,64],
-      [35,47,59,62,66],
-      [42,54,57,61,66],
+      [36,48,55,60,64],  // C major
+      [35,47,55,59,62],  // G/B
+      [33,45,52,57,60],  // A minor
+      [41,53,57,60,65],  // F major
 
-      [43,55,59,62,67],
-      [38,50,57,62,66],
-      [43,55,59,62,67],
-      [33,45,57,61,64]
+      [40,52,55,60,64],  // C/E
+      [41,53,57,60,65],  // F major
+      [43,55,59,62,67],  // G major
+      [36,48,55,60,64]   // C major
 
     ];
 
@@ -6600,7 +6582,7 @@ const Music =
 
 
               oscillator.type =
-                'sawtooth';
+                'sine';
 
 
               oscillator.frequency.value =
@@ -6700,7 +6682,7 @@ const Music =
 
 
       oscillator.type =
-        'triangle';
+        'sine';
 
 
       oscillator.frequency.value =
@@ -6716,14 +6698,14 @@ const Music =
 
 
       gain.gain.linearRampToValueAtTime(
-        .075,
-        time + .012
+        .055,
+        time + .025
       );
 
 
       gain.gain.exponentialRampToValueAtTime(
         .0001,
-        time + 2.4
+        time + 3.2
       );
 
 
@@ -6751,7 +6733,7 @@ const Music =
     function schedule(){
 
       const duration =
-        4.4;
+        4.2;
 
 
       const time =
@@ -6774,7 +6756,7 @@ const Music =
 
 
       [
-        1,2,3,4,3,2,3,4
+        0,1,2,3,2,1,3,2
       ]
       .forEach(
         (
