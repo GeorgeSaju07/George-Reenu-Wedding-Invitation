@@ -5231,7 +5231,7 @@ const CONFIG = {
 
   mapUrl:'',
 
-  musicUrl:''
+  musicUrl:'thousand_years.mp3'
 
 };
 
@@ -6375,48 +6375,48 @@ const Music =
   (() => {
 
     /*
-     * Romantic Christian / wedding-hymn inspired progression.
-     * C major gives the music a warm, hopeful and devotional character.
+     * Original romantic Christian wedding-hymn inspired music.
+     * Warm major-key harmony, gentle piano-like notes and a
+     * soft bell melody — designed to feel devotional, elegant
+     * and intimate without using a copyrighted song.
      */
     const CHORDS = [
 
       [36,48,55,60,64],  // C major
-      [35,47,55,59,62],  // G/B
+      [40,52,55,59,64],  // C/E
       [33,45,52,57,60],  // A minor
       [41,53,57,60,65],  // F major
 
-      [40,52,55,60,64],  // C/E
+      [36,48,55,60,64],  // C major
       [41,53,57,60,65],  // F major
       [43,55,59,62,67],  // G major
       [36,48,55,60,64]   // C major
 
     ];
 
+    // A simple original hymn-like melody in C major.
+    const MELODY = [
+      72, 76, 79, 76,
+      74, 72, 67, 69,
+      72, 74, 76, 74,
+      72, 69, 67, 64
+    ];
 
     const hz =
       midi =>
         440 *
         Math.pow(
           2,
-          (
-            midi -
-            69
-          ) /
-          12
+          (midi - 69) / 12
         );
-
 
     let context;
     let master;
     let bus;
     let timer;
-
     let step = 0;
-
     let playing = false;
-
     let audio = null;
-
 
     function init(){
 
@@ -6424,40 +6424,29 @@ const Music =
         window.AudioContext ||
         window.webkitAudioContext;
 
-
       if (!AudioContextClass){
-
-        throw new Error(
-          'no audio'
-        );
-
+        throw new Error('no audio');
       }
 
+      context = new AudioContextClass();
 
-      context =
-        new AudioContextClass();
-
-
-      master =
-        context.createGain();
-
-
-      master.gain.value =
-        0;
-
+      master = context.createGain();
+      master.gain.value = 0;
 
       const compressor =
         context.createDynamicsCompressor();
 
+      compressor.threshold.value = -24;
+      compressor.knee.value = 18;
+      compressor.ratio.value = 3;
+      compressor.attack.value = .02;
+      compressor.release.value = .35;
 
       const convolver =
         context.createConvolver();
 
-
       const length =
-        context.sampleRate *
-        4.8;
-
+        context.sampleRate * 5.5;
 
       const buffer =
         context.createBuffer(
@@ -6466,321 +6455,187 @@ const Music =
           context.sampleRate
         );
 
-
-      for (
-        let channel=0;
-        channel<2;
-        channel++
-      ){
+      for (let channel=0; channel<2; channel++){
 
         const data =
-          buffer.getChannelData(
-            channel
-          );
+          buffer.getChannelData(channel);
 
-
-        for (
-          let i=0;
-          i<length;
-          i++
-        ){
+        for (let i=0; i<length; i++){
 
           data[i] =
-            (
-              Math.random() *
-              2 -
-              1
-            ) *
-            Math.pow(
-              1 -
-              i / length,
-              2.7
-            );
+            (Math.random() * 2 - 1) *
+            Math.pow(1 - i / length, 2.9);
 
         }
 
       }
 
+      convolver.buffer = buffer;
 
-      convolver.buffer =
-        buffer;
+      bus = context.createGain();
 
+      const dry = context.createGain();
+      dry.gain.value = .72;
 
-      bus =
-        context.createGain();
+      const wet = context.createGain();
+      wet.gain.value = .48;
 
-
-      const dry =
-        context.createGain();
-
-
-      dry.gain.value =
-        .65;
-
-
-      const wet =
-        context.createGain();
-
-
-      wet.gain.value =
-        .6;
-
-
-      bus
-        .connect(
-          dry
-        )
-        .connect(
-          master
-        );
-
-
-      bus
-        .connect(
-          convolver
-        );
-
-
-      convolver
-        .connect(
-          wet
-        )
-        .connect(
-          master
-        );
-
+      bus.connect(dry).connect(master);
+      bus.connect(convolver);
+      convolver.connect(wet).connect(master);
 
       master
-        .connect(
-          compressor
-        )
-        .connect(
-          context.destination
-        );
-
+        .connect(compressor)
+        .connect(context.destination);
     }
-
 
     function pad(notes,time,duration){
 
-      notes.forEach(
-        midi => {
+      notes.forEach(midi => {
 
-          [-8,8].forEach(
-            detune => {
+        const oscillator = context.createOscillator();
+        const filter = context.createBiquadFilter();
+        const gain = context.createGain();
 
-              const oscillator =
-                context.createOscillator();
+        oscillator.type = 'sine';
+        oscillator.frequency.value = hz(midi);
 
+        filter.type = 'lowpass';
+        filter.frequency.value = midi < 50 ? 620 : 1250;
+        filter.Q.value = .2;
 
-              const filter =
-                context.createBiquadFilter();
+        const volume = midi < 50 ? .018 : .012;
 
-
-              const gain =
-                context.createGain();
-
-
-              oscillator.type =
-                'sine';
-
-
-              oscillator.frequency.value =
-                hz(
-                  midi
-                );
-
-
-              oscillator.detune.value =
-                detune;
-
-
-              filter.type =
-                'lowpass';
-
-
-              filter.frequency.value =
-                midi < 50
-                  ? 480
-                  : 1000;
-
-
-              filter.Q.value =
-                .25;
-
-
-              const volume =
-                midi < 50
-                  ? .02
-                  : .014;
-
-
-              gain.gain.setValueAtTime(
-                0,
-                time
-              );
-
-
-              gain.gain.linearRampToValueAtTime(
-                volume,
-                time + 1.7
-              );
-
-
-              gain.gain.setValueAtTime(
-                volume,
-                time + duration - .3
-              );
-
-
-              gain.gain.linearRampToValueAtTime(
-                0,
-                time + duration + 2.4
-              );
-
-
-              oscillator
-                .connect(
-                  filter
-                )
-                .connect(
-                  gain
-                )
-                .connect(
-                  bus
-                );
-
-
-              oscillator.start(
-                time
-              );
-
-
-              oscillator.stop(
-                time +
-                duration +
-                2.6
-              );
-
-            }
-          );
-
-        }
-      );
-
-    }
-
-
-    function pluck(midi,time){
-
-      const oscillator =
-        context.createOscillator();
-
-
-      const gain =
-        context.createGain();
-
-
-      oscillator.type =
-        'sine';
-
-
-      oscillator.frequency.value =
-        hz(
-          midi
+        gain.gain.setValueAtTime(0,time);
+        gain.gain.linearRampToValueAtTime(
+          volume,
+          time + 1.8
+        );
+        gain.gain.setValueAtTime(
+          volume,
+          time + duration - .5
+        );
+        gain.gain.linearRampToValueAtTime(
+          0,
+          time + duration + 2.8
         );
 
+        oscillator
+          .connect(filter)
+          .connect(gain)
+          .connect(bus);
 
-      gain.gain.setValueAtTime(
-        0,
-        time
-      );
+        oscillator.start(time);
+        oscillator.stop(time + duration + 3);
+      });
+    }
 
+    // Soft piano-like note.
+    function pianoNote(midi,time,volume=.045){
 
+      const oscillator = context.createOscillator();
+      const harmonic = context.createOscillator();
+      const gain = context.createGain();
+      const filter = context.createBiquadFilter();
+
+      oscillator.type = 'sine';
+      harmonic.type = 'triangle';
+
+      oscillator.frequency.value = hz(midi);
+      harmonic.frequency.value = hz(midi) * 2;
+
+      filter.type = 'lowpass';
+      filter.frequency.value = 1900;
+      filter.Q.value = .25;
+
+      gain.gain.setValueAtTime(0,time);
       gain.gain.linearRampToValueAtTime(
-        .055,
-        time + .025
+        volume,
+        time + .035
       );
-
-
       gain.gain.exponentialRampToValueAtTime(
         .0001,
-        time + 3.2
+        time + 2.8
       );
 
+      oscillator.connect(filter);
+      harmonic.connect(filter);
+      filter.connect(gain).connect(bus);
 
-      oscillator
-        .connect(
-          gain
-        )
-        .connect(
-          bus
-        );
+      oscillator.start(time);
+      harmonic.start(time);
 
-
-      oscillator.start(
-        time
-      );
-
-
-      oscillator.stop(
-        time + 2.5
-      );
-
+      oscillator.stop(time + 3);
+      harmonic.stop(time + 3);
     }
 
+    // Very soft bell/chime used for the devotional melody.
+    function melodyNote(midi,time){
+
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
+      const filter = context.createBiquadFilter();
+
+      oscillator.type = 'sine';
+      oscillator.frequency.value = hz(midi);
+
+      filter.type = 'lowpass';
+      filter.frequency.value = 2600;
+
+      gain.gain.setValueAtTime(0,time);
+      gain.gain.linearRampToValueAtTime(.035,time+.035);
+      gain.gain.exponentialRampToValueAtTime(.0001,time+2.2);
+
+      oscillator
+        .connect(filter)
+        .connect(gain)
+        .connect(bus);
+
+      oscillator.start(time);
+      oscillator.stop(time+2.5);
+    }
 
     function schedule(){
 
-      const duration =
-        4.2;
+      const duration = 4.8;
+      const time = context.currentTime + .08;
+      const chord = CHORDS[step % CHORDS.length];
 
+      pad(chord,time,duration);
 
-      const time =
-        context.currentTime +
-        .06;
-
-
-      const chord =
-        CHORDS[
-          step++ %
-          CHORDS.length
-        ];
-
-
-      pad(
-        chord,
-        time,
-        duration
-      );
-
-
-      [
-        0,1,2,3,2,1,3,2
-      ]
-      .forEach(
-        (
-          noteIndex,
-          index
-        ) => {
-
-          pluck(
-            chord[noteIndex] + 12,
-            time + .25 + index * .53
-          );
-
-        }
-      );
-
-
-      timer =
-        setTimeout(
-          schedule,
-          duration * 1000
+      // Gentle broken-chord piano movement.
+      [0,2,1,3,2,4].forEach((noteIndex,index) => {
+        pianoNote(
+          chord[noteIndex] + 12,
+          time + .25 + index * .72,
+          .038
         );
+      });
 
+      // Hymn-like melody, intentionally sparse and romantic.
+      const melodyStart =
+        time + .45;
+
+      const melodyOffset =
+        (step * 2) % MELODY.length;
+
+      [0,1,2,3].forEach(index => {
+        const note =
+          MELODY[(melodyOffset + index) % MELODY.length];
+
+        melodyNote(
+          note,
+          melodyStart + index * 1.08
+        );
+      });
+
+      step++;
+
+      timer = setTimeout(
+        schedule,
+        duration * 1000
+      );
     }
-
 
     return {
 
@@ -6788,173 +6643,91 @@ const Music =
         return playing;
       },
 
-
       start(){
 
         try{
 
-          if (
-            CONFIG.musicUrl
-          ){
+          if (CONFIG.musicUrl){
 
             audio =
               audio ||
               Object.assign(
-                new Audio(
-                  CONFIG.musicUrl
-                ),
+                new Audio(CONFIG.musicUrl),
                 {
                   loop:true,
-                  volume:.5
+                  volume:.42
                 }
               );
 
-
-            audio
-              .play()
-              .catch(
-                () => {}
-              );
-
-
-            playing =
-              true;
-
-
+            audio.play().catch(() => {});
+            playing = true;
             return true;
-
           }
-
 
           if (!context){
             init();
           }
 
-
           context.resume();
-
 
           master.gain.cancelScheduledValues(
             context.currentTime
           );
-
 
           master.gain.setValueAtTime(
             master.gain.value,
             context.currentTime
           );
 
-
           master.gain.linearRampToValueAtTime(
-            .6,
-            context.currentTime + 3.5
+            .48,
+            context.currentTime + 4
           );
-
 
           if (!playing){
             schedule();
           }
 
-
-          playing =
-            true;
-
-
+          playing = true;
           return true;
 
         }catch(error){
-
           return false;
-
         }
-
       },
-
 
       stop(){
 
-        playing =
-          false;
-
+        playing = false;
 
         if (audio){
-
           audio.pause();
-
           return;
-
         }
-
 
         if (!context){
           return;
         }
 
-
-        clearTimeout(
-          timer
-        );
-
+        clearTimeout(timer);
 
         master.gain.cancelScheduledValues(
           context.currentTime
         );
-
 
         master.gain.setValueAtTime(
           master.gain.value,
           context.currentTime
         );
 
-
         master.gain.linearRampToValueAtTime(
           0,
           context.currentTime + 1.2
         );
-
-
-        setTimeout(
-          () => {
-
-            if (!playing){
-              context.suspend();
-            }
-
-          },
-          1400
-        );
-
-      },
-
-
-      hide(hidden){
-
-        if (
-          !context ||
-          !playing
-        ){
-          return;
-        }
-
-
-        hidden
-          ? context.suspend()
-          : context.resume();
-
       }
-
     };
 
   })();
-
-
-document.addEventListener(
-  'visibilitychange',
-  () =>
-    Music.hide(
-      document.hidden
-    )
-);
 
 
 /* ==========================================================================
